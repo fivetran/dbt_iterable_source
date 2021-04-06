@@ -1,0 +1,25 @@
+config-version: 2
+
+name: 'iterable_source'
+version: '0.1.0'
+
+require-dbt-version: [">=0.18.0", "<0.20.0"]
+
+models:
+  iterable_source:
+    +materialized: table
+    +schema: stg_iterable
+    tmp:
+      +materialized: view
+
+vars:
+  iterable_source:
+    event:              "{{ source('iterable', 'event') }}"
+    event_extension:    "{{ source('iterable', 'event_extension') }}"
+    campaign_history:   "{{ source('iterable', 'campaign_history') }}"
+    campaign_metrics:   "{{ source('iterable', 'campaign_metrics') }}"
+    user_history:       "{{ source('iterable', 'user_history') }}"
+    list_user_history:  "{{ source('iterable', 'list_user_history') }}"
+
+
+  

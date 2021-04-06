@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: iterable
+    database: "{{var ('iterable_database', target.database)}}"
+    schema: "{{var ('iterable_schema', 'iterable')}}"
+
+    loader: fivetran
+    loaded_at_field: _fivetran_synced
+      
+    freshness:
+      warn_after: {count: 72, period: hour}
+      error_after: {count: 168, period: hour}
+
+
+    tables:
+      - name: event
+        description: Table containing individual events within campaigns.     
+        loaded_at_field: _fivetran_synced
+        # columns:
+
+      - name: event_extension
+        description: Table containing addition properties from the event table.
+        loaded_at_field: _fivetran_synced
+        # columns:
+
+      - name: campaign_history
+        description: Table containing a history of campaigns.
+        loaded_at_field: _fivetran_synced
+        # columns:
+
+      - name: campaign_metrics
+        description: Table containing aggregated metrics for each campaign.
+        loaded_at_field: _fivetran_synced 
+        # columns:
+
+      - name: user_history
+        description: Table containing individual user history information.
+        loaded_at_field: _fivetran_synced
+        # columns:
+      
+      - name: list_user_history
+        description: Table containing users and the lists the users are associated with.
+        loaded_at_field: _fivetran_synced
+        # columns:
+      
+
