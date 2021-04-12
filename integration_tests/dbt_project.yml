@@ -13,6 +13,7 @@ vars:
     event_extension:    "{{ ref('event_extension_data') }}"
     campaign_history:   "{{ ref('campaign_history_data') }}"
     campaign_metrics:   "{{ ref('campaign_metrics_data') }}"
+    user_history:       "{{ ref('list_data') }}"
     user_history:       "{{ ref('user_history_data') }}"
     
 seeds:

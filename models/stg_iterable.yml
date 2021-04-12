@@ -43,6 +43,15 @@ models:
       - name: campaign_id
         description: The unique identifier of the campaign.
 
+  - name: stg_iterable__list
+    description: Table containing each list and its corresponding details.
+    loaded_at_field: _fivetran_synced
+    columns:
+      - name: list_id
+        description: The unique list identifier.
+        tests:
+          - unique
+          - not_null
 
   - name: stg_iterable__user_history
     description: Table containing individual user history information.

@@ -18,8 +18,5 @@ vars:
     event_extension:    "{{ source('iterable', 'event_extension') }}"
     campaign_history:   "{{ source('iterable', 'campaign_history') }}"
     campaign_metrics:   "{{ source('iterable', 'campaign_metrics') }}"
+    list:               "{{ source('iterable', 'list') }}"
     user_history:       "{{ source('iterable', 'user_history') }}"
-    list_user_history:  "{{ source('iterable', 'list_user_history') }}"
-
-
-  

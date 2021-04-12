@@ -39,7 +39,7 @@ sources:
         loaded_at_field: _fivetran_synced
         # columns:
       
-      - name: list_user_history
+      - name: list
         description: Table containing users and the lists the users are associated with.
         loaded_at_field: _fivetran_synced
         # columns:
