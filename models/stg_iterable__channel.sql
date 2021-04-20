@@ -2,7 +2,8 @@
 with base as (
 
     select * 
-    from {{ ref('stg_iterable__event_tmp') }}
+    from {{ ref('stg_iterable__channel_tmp') }}
+    where not coalesce(_fivetran_deleted, false)
 
 ),
 
@@ -17,8 +18,8 @@ fields as (
         */
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_iterable__event_tmp')),
-                staging_columns=get_event_columns()
+                source_columns=adapter.get_columns_in_relation(ref('stg_iterable__channel_tmp')),
+                staging_columns=get_channel_columns()
             )
         }}
         
@@ -28,22 +29,11 @@ fields as (
 final as (
     
     select 
-        _fivetran_id as event_id,
-        campaign_id,
-        content_id,
-        created_at,
-        email,
-        additional_properties,
-        event_name,
-        message_bus_id,
-        message_id,
-        message_type_id,
-        recipient_state,
-        status,
-        transactional_data,
-        unsub_source,
-        user_agent,
-        user_agent_device
+        id as channel_id, 
+        name as channel_name,
+        channel_type,
+        message_medium
+        
     from fields
 )
 

@@ -14,34 +14,367 @@ sources:
 
 
     tables:
-      - name: event
-        description: Table containing individual events within campaigns.     
-        loaded_at_field: _fivetran_synced
-        # columns:
-
-      - name: event_extension
-        description: Table containing addition properties from the event table.
-        loaded_at_field: _fivetran_synced
-        # columns:
-
       - name: campaign_history
         description: Table containing a history of campaigns.
         loaded_at_field: _fivetran_synced
-        # columns:
+        columns:
+          - name: id
+            description: Unique identifier of the campaign record
+          - name: updated_at
+            description: Last update timestamp as epoch time in milliseconds
+          - name: name
+            description: User defined name of the campaign.
+          - name: campaign_state
+            description: State of the campaign. Can be Draft, Ready, Scheduled, Running, Finished, Starting, Aborted or Recurring
+          - name: type
+            description: The campaign type. Can be Blast or Triggered
+          - name: send_size
+            description: Size of the campaign. Number of individuals included in the campaign
+          - name: start_at
+            description: Start timestamp as epoch time in milliseconds
+          - name: ended_at
+            description: Ended timestamp as epoch time in milliseconds
+          - name: created_at
+            description: Creation timestamp as epoch time in milliseconds
+          - name: recurring_campaign_id
+            description: Reference to the recurring campaign, if applicable
+          - name: created_by_user_id
+            description: Reference to the user who created the campaign
+          - name: template_id
+            description: Reference to the campaign template
+
+      - name: campaign_label_history
+        description: Table containing a history of labels.
+        loaded_at_field: _fivetran_synced
+        columns:
+          - name: campaign_id
+            description: Reference to the campaign associated with the label
+          - name: label
+            description: Name of the label
+          - name: updated_at
+            description: Last update timestamp as epoch time in milliseconds
+
+      - name: campaign_list_history
+        description: Table containing a history of lists.
+        loaded_at_field: _fivetran_synced
+        columns:
+          - name: campaign_id
+            description: Reference to the campaign associated with the label
+          - name: list_id
+            description: Reference to the list used
+          - name: updated_at
+            description: Last update timestamp as epoch time in milliseconds
 
       - name: campaign_metrics
-        description: Table containing aggregated metrics for each campaign.
+        description: Table containing aggregated metrics for each campaign for each day.
         loaded_at_field: _fivetran_synced 
-        # columns:
+        columns:
+          - name: id
+            description: Reference to the campaign the metrics are associated with
+          - name: date
+            description: Timestamp of the date the metrics were generate
+          - name: purchases
+            description: Purchases per Mile (thousand emails sent)
+          - name: revenue
+            description: The amount of revenue that resulted from the campaign
+          - name: revenue_m
+            description: Revenue per Mille (thousand emails sent)
+          - name: average_order_value
+            description: Revenue / Total Purchases
+          - name: total_app_uninstalls
+            description: Total app uninstalls that resulted from the campaign
+          - name: total_complaints
+            description: The number of individuals who reported your email as spam
+          - name: total_email_bounced
+            description: The number of hard or soft-bounced email addresses
+          - name: total_email_clicked
+            description: Total number of clicks. Includes multiple clicks per person
+          - name: total_email_delivered
+            description: Total number of emails delivered successfully (sends minus bounces)
+          - name: total_email_holdout
+            description: For a given campaign, the number of email sends that were skipped because of an experiment holdout group
+          - name: total_email_opens
+            description: Total number of opens. Can include multiple opens per person
+          - name: total_email_send_skips
+            description: Total number of email sends that were skipped
+          - name: total_email_sends
+            description: The total number of emails sent. This number may be lower than the list size at send time because some emails may be undeliverable
+          - name: total_hosted_unsubscribe_clicks
+            description: The total number of hosted unsubscribe link clicks; includes multiple clicks per person
+          - name: total_in_app_clicks
+            description: Total in app clicks from the campaign
+          - name: total_in_app_closes
+            description: Total in app closes from the campaign
+          - name: total_in_app_deletes
+            description: Total in app deletes from the campaign
+          - name: total_in_app_holdout
+            description: For a given campaign, the number of in-app message sends that were skipped because of an experiment holdout group
+          - name: total_in_app_opens
+            description: Total in app opens from the campaign
+          - name: total_in_app_send_skips
+            description: Total in app send skips from the campaign
+          - name: total_in_app_sent
+            description: Total in app sends from the campaign
+          - name: total_in_apps_delivered
+            description: Total in apps delivered from the campaign
+          - name: total_inbox_impressions
+            description: Total inbox impressions from the campaign
+          - name: total_purchases
+            description: The number of purchases that resulted from the campaign.
+          - name: total_push_holdout
+            description: For a given campaign, the number of push notification sends that were skipped because of an experiment holdout group
+          - name: total_push_send_skips
+            description: Total push send skips from the campaign
+          - name: total_pushes_bounced
+            description: Total pushes bounced from the campaign
+          - name: total_pushes_delivered
+            description: Total pushes delivered from the campaign
+          - name: total_pushes_opened
+            description: Total pushes opened from the campaign
+          - name: total_pushes_sent
+            description: Total pushes sent from the campaign
+          - name: total_unsubscribes
+            description: Total unsubscribes from the campaign
+          - name: unique_email_bounced
+            description: Unique number of email addresses that bounced from the campaign
+          - name: unique_email_clicks
+            description: Unique number of email clicks from the campaign
+          - name: unique_email_opens_or_clicks
+            description: Unique number of email opens or clicks from the campaign
+          - name: unique_email_sends
+            description: Unique number of email sends from the campaign
+          - name: unique_emails_delivered
+            description: Unique number of emails successfully delivered. Uniqueness is defined as unique email addresses. This doesn't apply to blast campaigns, because in that case "total delivered" is equal to "unique delivered" (since the list for a blast campaign cannot contain duplicate email addresses)
+          - name: unique_emails_opens
+            description: Unique number of email opens from the campaign
+          - name: unique_hosted_unsubscribe_clicks
+            description: The number of individual users who clicked your hosted unsubscribe link
+          - name: unique_in_app_clicks
+            description: Unique number of in app clicks from the campaign
+          - name: unique_in_app_opens
+            description: Unique number of in app opens from the campaign
+          - name: unique_in_app_sends
+            description: Unique number of in app sends from the campaign
+          - name: unique_in_apps_delivered
+            description: Unique number of in apps deliveries from the campaign
+          - name: unique_purchases
+            description: The unique number of users who made a purchase from the campaign
+          - name: unique_pushes_bounced
+            description: The unique number of pushes bounced from the campaign
+          - name: unique_pushes_delivered
+            description: The unique number of pushes delivered from the campaign
+          - name: unique_pushes_opened
+            description: The unique number of pushes opened from the campaign
+          - name: unique_pushes_sent
+            description: The unique number of pushes sent from the campaign
+          - name: unique_unsubscribes
+            description: The unique number of users who unsubscribed from your email
+
+      - name: campaign_supression_list_history #THIS IS SPELLED WRONG. PUT REQUEST IN TO CHANGE THE TYPO
+        description: Table containing a history of suppression lists.
+        loaded_at_field: _fivetran_synced
+        columns:
+          - name: campaign_id
+            description: Reference to the campaign associated with the label
+          - name: suppressed_list_id
+            description: Reference to the list used
+          - name: updated_at
+            description: Last update timestamp as epoch time in milliseconds
+
+      - name: channel
+        description: Table containing unique channels.     
+        loaded_at_field: _fivetran_synced
+        columns:
+          - name: id
+            description: Unique identifier of the channel
+          - name: name
+            description: User defined name of the channel
+          - name: channel_type
+            description: The channel type
+          - name: message_medium
+            description: The message medium associated with the channel
+
+      - name: event
+        description: Table containing individual events within campaigns.     
+        loaded_at_field: _fivetran_synced
+        columns:
+          - name: _fivetran_id
+            description: Unique id of the event generated by Fivetran
+          - name: campaign_id
+            description: Reference to the campaign from which the event originated
+          - name: content_id
+            description: Reference to the content the event is associated with
+          - name: created_at
+            description: Creation timestamp as epoch time in milliseconds
+          - name: email
+            description: Reference to the unique user the event was applied to
+          - name: additional_properties
+            description: json object containing addition event properties
+          - name: event_name
+            description: Name provided to the individual event
+          - name: message_bus_id
+            description: Reference to the message bus associated with the event
+          - name: message_id
+            description: Reference to the message the event is associated with
+          - name: message_type_id
+            description: Reference to the type of message the event is associated with
+          - name: recipient_state
+            description: The state of the recipient upon receiving the event
+          - name: status
+            description: Status of the event
+          - name: transactional_data
+            description: Transactional data associated with the event
+          - name: unsub_source
+            description: Source of the unsubscribe event
+          - name: user_agent
+            description: User agent associated with the event
+          - name: user_agent_device
+            description: The device of the user agent
+      
+      - name: event_extension
+        description: Table containing addition properties from the event table.
+        loaded_at_field: _fivetran_synced
+        columns:
+          - name: _fivetran_id
+            description: Unique identifier of the event. Generate by Fivetran
+          - name: app_already_running
+            description: Boolean indicating if the app is currently running or not
+          - name: badge
+            description: Badge associated with the event
+          - name: canonical_url_id
+            description: Reference to the url associated with the event
+          - name: content_available
+            description: Content available from the event
+          - name: content_id
+            description: Reference to the content associated with the event
+          - name: deeplink_android
+            description: Deeplink associated with the event from an android device
+          - name: deeplink_ios
+            description: Deeplink associated with the event from an ios device
+          - name: device
+            description: The device associated with the event
+          - name: email_id
+            description: Reference to the email associated with the event
+          - name: email_subject
+            description: Subject of the email associated with the event
+          - name: experiment_id
+            description: Reference to the experiment used if the event is an experiment
+          - name: from_phone_number_id
+            description: Reference to the phone number which the event is from
+          - name: from_smssender_id
+            description: Reference to the sms sender which the event is from
+          - name: image_url
+            description: Image url of the event
+          - name: is_ghost_push
+            description: Boolean indicating if the event is a result of a ghost push
+          - name: link_id
+            description: Reference to the link associated with the event
+          - name: link_url
+            description: Url of the link associated with the event
+          - name: locale
+            description: Locale associated with the event
+          - name: payload
+            description: Payload resulted from the event
+          - name: platform_endpoint
+            description: The specific platform endpoint of the event
+          - name: push_message
+            description: Boolean indicating if the event is a push message
+          - name: region
+            description: Region of the event
+          - name: sms_message
+            description: Boolean indicating if the event is an sms message
+          - name: sms_provider_response_code
+            description: sms provider response code from the event
+          - name: sms_provider_response_message
+            description: sms provider response message from the event
+          - name: sms_provider_response_more_info
+            description: sms provider response addition info from the event
+          - name: sms_provider_response_status
+            description: Status of the sms provider response from the event
+          - name: sound
+            description: Boolean indicating if a sound was used with the event
+          - name: to_phone_number
+            description: To phone number associated with the event
+          - name: url
+            description: Url associated with the event
+          - name: workflow_id
+            description: Reference to the workflow which the event originated
+          - name: workflow_name
+            description: Name of the workflow which the event originated
+
+      - name: list
+        description: Table containing users and the lists the users are associated with.
+        loaded_at_field: _fivetran_synced
+        columns:
+          - name: id
+            description: Unique identifier of the list
+          - name: name
+            description: User defined name of the list
+          - name: list_type
+            description: The list type
+          - name: created_at
+            description: Creation timestamp as epoch time in milliseconds
+
+      - name: message_type
+        description: Table containing unique message types.
+        loaded_at_field: _fivetran_synced
+        columns:
+          - name: id
+            description: Unique identifer of the message type
+          - name: name
+            description: User defined name of the message type
+          - name: channel_id
+            description: Channel that this message type belongs to
+
+      - name: template_history
+        description: Table containing unique templates used across campaigns.
+        loaded_at_field: _fivetran_synced
+        columns:
+          - name: id
+            description: Unique identifer of the template
+          - name: name
+            description: User defined name of the template
+          - name: template_type
+            description: The type of the template
+          - name: created_at
+            description: Creation timestamp as epoch time in milliseconds
+          - name: client_template_id
+            description: Reference to the client template
+          - name: creator_user_id
+            description: Reference to the user who created the template
+          - name: message_type_id
+            description: Reference to the message type associated with the template
+          - name: updated_at
+            description: Last update timestamp as epoch time in milliseconds
 
       - name: user_history
         description: Table containing individual user history information.
         loaded_at_field: _fivetran_synced
-        # columns:
+        columns:
+          - name: email
+            description: Unique identifier of the user as well as their email
+          - name: user_id
+            description: User defined identifier of the user. This is not a unique field
+          - name: first_name
+            description: First name of the user
+          - name: last_name
+            description: Last name of the user
+          - name: email_list_ids
+            description: Array of references to the lists associated with the user
+          - name: signup_date
+            description: Timestamp as epoch time in milliseconds of when the user signed up
+          - name: signup_source
+            description: Source where the user signed up
+          - name: updated_at
+            description: Last update timestamp as epoch time in milliseconds
       
-      - name: list
-        description: Table containing users and the lists the users are associated with.
+      - name: user_unsubscribed_channel_history
+        description: Table containing the history of channels from which a user has unsubscribed.
         loaded_at_field: _fivetran_synced
-        # columns:
-      
-
+        columns:
+          - name: channel_id
+            description: Reference to the channel from which the user unsubscribed
+          - name: email
+            description: Unique identifier of the user
+          - name: updated_at
+            description: Last update timestamp as epoch time in milliseconds

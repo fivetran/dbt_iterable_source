@@ -10,7 +10,7 @@ This package enriches your Fivetran data by doing the following:
 
 ## Models
 
-This package contains staging models, designed to work simultaneously with our [Iterable transformation package](https://github.com/fivetran/dbt_Iterable). The staging models name columns consistently across all packages:
+This package contains staging models, designed to work simultaneously with our [Iterable transformation package](https://github.com/fivetran/dbt_iterable). The staging models name columns consistently across all packages:
 * Boolean fields are prefixed with `is_` or `has_`
 * Timestamps are appended with `_at`
 * ID primary keys are prefixed with the name of the table. For example, the campaign history table's ID column is renamed `campaign_history_id`.
@@ -41,33 +41,27 @@ By default this package will build the Iterable staging models within a schema t
 ...
 models:
     iterable_source:
-        +schema: my_new_schema_name
-```
-
-### Disabling Models
-This package takes into consideration that not every Iterable account utilizes the `tbd` features, and allows you to disable the corresponding functionality. By default, all variables' values are assumed to be `true`. Add variables for only the tables you want to disable:
-```yml
-# dbt_project.yml
-
-...
-vars:
-    tbd:
+        +schema: my_new_schema_name # leave blank for just the target_schema
 ```
 
 ## Contributions
-
 Additional contributions to this package are very welcome! Please create issues
 or open PRs against `master`. Check out 
 [this post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) 
 on the best workflow for contributing to a package.
 
+## Database Support
+This package has been tested on BigQuery, Snowflake, Redshift, and Postgres.
+
 ## Resources:
-- Find all of Fivetran's pre-built dbt packages in our [dbt hub](https://hub.getdbt.com/fivetran/)
 - Provide [feedback](https://www.surveymonkey.com/r/DQ7K7WW) on our existing dbt packages or what you'd like to see next
-- Learn more about Fivetran [here](https://fivetran.com/docs)
+- Have questions or feedback, or need help? Book a time during our office hours [here](https://calendly.com/fivetran-solutions-team/fivetran-solutions-team-office-hours) or shoot us an email at solutions@fivetran.com.
+- Find all of Fivetran's pre-built dbt packages in our [dbt hub](https://hub.getdbt.com/fivetran/)
+- Learn how to orchestrate dbt transformations with Fivetran [here](https://fivetran.com/docs/transformations/dbt).
+- Learn more about Fivetran overall [in our docs](https://fivetran.com/docs)
 - Check out [Fivetran's blog](https://fivetran.com/blog)
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
+- Learn more about dbt [in the dbt docs](https://docs.getdbt.com/docs/introduction)
 - Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
 - Join the [chat](http://slack.getdbt.com/) on Slack for live discussions and support
 - Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- Check out [the dbt blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices

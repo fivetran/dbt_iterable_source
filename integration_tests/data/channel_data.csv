@@ -1,0 +1,11 @@
+id,_fivetran_deleted,_fivetran_synced,channel_type,message_medium,name
+14794,FALSE,2021-04-20 08:21:46,Marketing,Push,Push Marketing Channel
+14793,FALSE,2021-04-20 08:21:46,Transactional,Email,Transactional Email Channel
+14988,FALSE,2021-04-20 08:21:46,Marketing,SMS,Default SMS channel
+14792,FALSE,2021-04-20 08:21:46,Marketing,Email,Marketing Email Channel
+15027,FALSE,2021-04-20 08:21:46,Marketing,InApp,Marketing InApp Channel
+15029,FALSE,2021-04-20 08:21:46,Marketing,WebPush,Marketing Web Push Channel
+15030,FALSE,2021-04-20 08:21:46,Transactional,InApp,Transactional InApp Channel
+15032,FALSE,2021-04-20 08:21:46,Transactional,SMS,Transactional SMS Channel
+15031,FALSE,2021-04-20 08:21:46,Transactional,Push,Transactional Push Channel
+15037,FALSE,2021-04-20 08:21:46,Transactional,WebPush,Transactional Web Push Channel

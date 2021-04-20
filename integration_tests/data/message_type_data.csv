@@ -1,0 +1,11 @@
+id,_fivetran_deleted,_fivetran_synced,channel_id,name
+16309,FALSE,2021-04-20 14:21:02,15031,Transactional Push Message
+16308,FALSE,2021-04-20 14:21:02,15032,Transactional SMS Message
+16310,FALSE,2021-04-20 14:21:02,15030,Transactional InApp Message
+16265,FALSE,2021-04-20 14:21:02,14988,Default SMS message type
+16059,FALSE,2021-04-20 14:21:02,14793,Transactional Email Message
+16060,FALSE,2021-04-20 14:21:02,14794,Push Marketing Message
+16058,FALSE,2021-04-20 14:21:02,14792,Marketing Email Message
+16315,FALSE,2021-04-20 14:21:02,15037,Transactional Web Push Message
+16312,FALSE,2021-04-20 14:21:02,15027,Marketing InApp Message
+16311,FALSE,2021-04-20 14:21:02,15029,Marketing Web Push Message
