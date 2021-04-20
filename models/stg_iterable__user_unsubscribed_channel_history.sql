@@ -1,7 +1,5 @@
-
 with base as (
-
-    select * 
+    select *
     from {{ ref('stg_iterable__user_unsubscribed_channel_history_tmp') }}
 
 ),

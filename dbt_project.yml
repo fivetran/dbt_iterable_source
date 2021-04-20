@@ -18,7 +18,7 @@ vars:
     campaign_label_history:             "{{ source('iterable', 'campaign_label_history') }}"
     campaign_list_history:              "{{ source('iterable', 'campaign_list_history') }}"
     campaign_metrics:                   "{{ source('iterable', 'campaign_metrics') }}"
-    campaign_suppression_list_history:  "{{ source('iterable', 'campaign_supression_list_history') }}"
+    campaign_suppression_list_history:  "{{ source('iterable', 'campaign_supression_list_history') }}" #Request to rename ticket has been initiated
     channel:                            "{{ source('iterable', 'channel') }}"
     event:                              "{{ source('iterable', 'event') }}"
     event_extension:                    "{{ source('iterable', 'event_extension') }}"    
@@ -30,5 +30,4 @@ vars:
 
     #Variables intended for enabling/disabling models
     iterable__using_event_extension: true
-
 
