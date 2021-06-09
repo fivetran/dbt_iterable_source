@@ -27,11 +27,11 @@ fields as (
 
 final as (
     select
-        _fivetran_id as event_id,
-        app_already_running,
+        _fivetran_id as _fivetran_event_id,
+        app_already_running as is_app_already_running,
         badge,
         canonical_url_id,
-        content_available,
+        content_available as is_content_available,
         content_id,
         deeplink_android,
         deeplink_ios,

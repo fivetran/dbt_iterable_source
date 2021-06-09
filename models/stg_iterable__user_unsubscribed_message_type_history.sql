@@ -2,8 +2,7 @@
 with base as (
 
     select * 
-    from {{ ref('stg_iterable__channel_tmp') }}
-    where not coalesce(_fivetran_deleted, false)
+    from {{ ref('stg_iterable__user_unsubscribed_message_type_history_tmp') }}
 
 ),
 
@@ -18,8 +17,8 @@ fields as (
         */
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_iterable__channel_tmp')),
-                staging_columns=get_channel_columns()
+                source_columns=adapter.get_columns_in_relation(ref('stg_iterable__user_unsubscribed_message_type_history_tmp')),
+                staging_columns=get_user_unsubscribed_message_type_history_columns()
             )
         }}
         
@@ -29,14 +28,10 @@ fields as (
 final as (
     
     select 
-        id as channel_id, 
-        name as channel_name,
-        channel_type,
-        message_medium,
-        _fivetran_synced
-        
+        email,
+        message_type_id,
+        updated_at
     from fields
 )
 
-select * 
-from final
+select * from final

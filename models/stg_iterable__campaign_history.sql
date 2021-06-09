@@ -32,14 +32,18 @@ final as (
         updated_at,
         name as campaign_name,
         campaign_state,
-        type,
+        type as campaign_type,
         send_size,
         start_at,
         ended_at,
         created_at,
         recurring_campaign_id,
         created_by_user_id,
-        template_id
+        template_id,
+        workflow_id,
+        template_id,
+        recurring_campaign_id,
+        _fivetran_synced
 
     from fields
 )

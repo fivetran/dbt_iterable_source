@@ -30,7 +30,7 @@ final as (
     
     select 
         id as campaign_id,
-        date,
+        date as measure_date,
         purchases,
         revenue,
         revenue_m,

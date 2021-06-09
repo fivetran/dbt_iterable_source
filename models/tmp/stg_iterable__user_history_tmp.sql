@@ -1,2 +1,1 @@
-select *
-from {{ var('user_history') }}
+select * from {{ var('user_history') }}

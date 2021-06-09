@@ -6,15 +6,15 @@
     {"name": "created_at", "datatype": dbt_utils.type_timestamp()},
     {"name": "created_by_user_id", "datatype": dbt_utils.type_string()},
     {"name": "ended_at", "datatype": dbt_utils.type_timestamp()},
-    {"name": "id", "datatype": dbt_utils.type_int()},
+    {"name": "id", "datatype": dbt_utils.type_numeric()},
     {"name": "name", "datatype": dbt_utils.type_string()},
-    {"name": "recurring_campaign_id", "datatype": dbt_utils.type_int()},
-    {"name": "send_size", "datatype": dbt_utils.type_int()},
+    {"name": "recurring_campaign_id", "datatype": dbt_utils.type_numeric()},
+    {"name": "send_size", "datatype": dbt_utils.type_numeric()},
     {"name": "start_at", "datatype": dbt_utils.type_timestamp()},
-    {"name": "template_id", "datatype": dbt_utils.type_int()},
+    {"name": "template_id", "datatype": dbt_utils.type_numeric()},
     {"name": "type", "datatype": dbt_utils.type_string()},
     {"name": "updated_at", "datatype": dbt_utils.type_timestamp()},
-    {"name": "workflow_id", "datatype": dbt_utils.type_int()}
+    {"name": "workflow_id", "datatype": dbt_utils.type_numeric()}
 ] %}
 
 {{ return(columns) }}
