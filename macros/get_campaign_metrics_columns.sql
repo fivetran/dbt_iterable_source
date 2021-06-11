@@ -21,6 +21,7 @@
     {"name": "total_email_send_skips", "datatype": dbt_utils.type_numeric()},
     {"name": "total_email_sends", "datatype": dbt_utils.type_float()},
     {"name": "total_hosted_unsubscribe_clicks", "datatype": dbt_utils.type_float()},
+    {"name": "total_in_app_clicks", "datatype": dbt_utils.type_numeric()},
     {"name": "total_purchases", "datatype": dbt_utils.type_float()},
     {"name": "total_pushes_bounced", "datatype": dbt_utils.type_float()},
     {"name": "total_pushes_delivered", "datatype": dbt_utils.type_float()},

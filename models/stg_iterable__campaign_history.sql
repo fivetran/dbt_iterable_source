@@ -41,8 +41,6 @@ final as (
         created_by_user_id,
         template_id,
         workflow_id,
-        template_id,
-        recurring_campaign_id,
         _fivetran_synced
 
     from fields

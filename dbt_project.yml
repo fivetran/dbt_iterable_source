@@ -28,5 +28,3 @@ vars:
     user_history:                       "{{ source('iterable', 'user_history') }}"
     user_unsubscribed_channel_history:  "{{ source('iterable', 'user_unsubscribed_channel_history') }}"
     user_unsubscribed_message_type_history: "{{ source('iterable', 'user_unsubscribed_message_type_history') }}"
-
-profile: iterable
