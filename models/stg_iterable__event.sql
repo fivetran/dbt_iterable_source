@@ -1,4 +1,4 @@
-
+-- todo: probably want to configure this as incremental? or just as a view takes like 1/100th of the time
 with base as (
 
     select * 
