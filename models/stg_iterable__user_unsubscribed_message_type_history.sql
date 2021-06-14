@@ -17,7 +17,7 @@ fields as (
         */
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_iterable__user_unsubscribed_message_type_history_tmp')),
+                source_columns=adapter.get_columns_in_relation(ref('stg_iterable__user_unsub_message_type_history_tmp')),
                 staging_columns=get_user_unsubscribed_message_type_history_columns()
             )
         }}
