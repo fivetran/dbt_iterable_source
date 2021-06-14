@@ -2,7 +2,7 @@
 with base as (
 
     select * 
-    from {{ ref('stg_iterable__user_unsubscribed_message_type_history_tmp') }}
+    from {{ ref('stg_iterable__user_unsub_message_type_history_tmp') }}
 
 ),
 
