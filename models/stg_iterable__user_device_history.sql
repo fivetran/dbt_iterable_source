@@ -1,4 +1,4 @@
-
+-- todo: may want to make this ephemeral or do the window functions to select the final batch of devices here
 with base as (
 
     select * 
