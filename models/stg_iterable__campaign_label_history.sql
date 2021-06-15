@@ -1,3 +1,4 @@
+{{ config(enabled=var('iterable__using_campaign_label_history', True)) }}
 
 with base as (
 

@@ -44,6 +44,8 @@ sources:
 
       - name: campaign_label_history
         description: Table containing a history of labels.
+        meta:
+          is_enabled: "{{ var('iterable__using_campaign_label_history', true) }}"
         columns:
           - name: campaign_id
             description: Reference to the campaign associated with the label
@@ -360,6 +362,8 @@ sources:
 
       - name: user_device_history
         description: Table capturing the history of devices associated with in-app and push notifications to a user.
+        meta:
+          is_enabled: "{{ var('iterable__using_user_device_history', true) }}"
         columns:
           - name: application_name
             description: >
@@ -399,6 +403,8 @@ sources:
 
       - name: user_unsubscribed_message_type_history
         description: Table containing the history of message types from which a user has unsubscribed.
+        meta:
+          is_enabled: "{{ var('iterable__using_user_unsubscribed_message_type_history', true) }}"
         columns:
           - name: message_type_id
             description: Reference to the message type from which the user unsubscribed

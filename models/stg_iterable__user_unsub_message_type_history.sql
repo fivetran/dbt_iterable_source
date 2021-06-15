@@ -1,3 +1,4 @@
+{{ config(enabled=var('iterable__using_user_unsubscribed_message_type_history', True)) }}
 
 with base as (
 
