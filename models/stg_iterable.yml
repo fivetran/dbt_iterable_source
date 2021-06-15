@@ -418,6 +418,12 @@ models:
 
   - name: stg_iterable__user_device_history
     description: Table capturing the history of devices associated with in-app and push notifications to a user.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - email
+            - updated_at
+            - index
     columns:
       - name: application_name
         description: >
