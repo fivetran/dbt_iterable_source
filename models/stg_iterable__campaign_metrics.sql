@@ -78,7 +78,8 @@ final as (
         unique_pushes_delivered,
         unique_pushes_opened,
         unique_pushes_sent,
-        unique_unsubscribes
+        unique_unsubscribes,
+        _fivetran_synced
     from fields
 )
 

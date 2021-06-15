@@ -31,7 +31,8 @@ final as (
     select 
         id as message_type_id,
         name as message_type_name,
-        channel_id
+        channel_id,
+        _fivetran_synced
     from fields
 )
 

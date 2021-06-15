@@ -31,7 +31,8 @@ final as (
     select 
         campaign_id,
         label,
-        updated_at
+        updated_at,
+        _fivetran_synced
     from fields
 )
 

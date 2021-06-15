@@ -29,7 +29,8 @@ final as (
         client_template_id,
         creator_user_id,
         message_type_id,
-        updated_at
+        updated_at,
+        _fivetran_synced
     from fields
 )
 

@@ -26,7 +26,8 @@ final as (
         id as list_id,
         name as list_name,
         list_type,
-        created_at
+        created_at,
+        _fivetran_synced
     from fields
 )
 

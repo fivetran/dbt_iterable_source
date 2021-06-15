@@ -30,7 +30,8 @@ final as (
     select 
         campaign_id,
         list_id,
-        updated_at
+        updated_at,
+        _fivetran_synced
     from fields
 )
 

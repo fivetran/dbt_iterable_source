@@ -33,9 +33,11 @@ final as (
         first_name,
         last_name,
         email_list_ids,
+        phone_number,
         signup_date,
         signup_source,
-        updated_at
+        updated_at,
+        _fivetran_synced
     from fields
 )
 

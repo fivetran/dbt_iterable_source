@@ -28,7 +28,8 @@ final as (
     select 
         channel_id,
         email,
-        updated_at
+        updated_at,
+        _fivetran_synced
     from fields
 )
 

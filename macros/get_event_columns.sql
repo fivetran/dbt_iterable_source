@@ -8,7 +8,6 @@
     {"name": "created_at", "datatype": dbt_utils.type_timestamp()},
     {"name": "email", "datatype": dbt_utils.type_string()},
     {"name": "event_name", "datatype": dbt_utils.type_string()},
-    {"name": "ip", "datatype": dbt_utils.type_string()},
     {"name": "message_bus_id", "datatype": dbt_utils.type_string()},
     {"name": "message_id", "datatype": dbt_utils.type_string()},
     {"name": "message_type_id", "datatype": dbt_utils.type_numeric()},

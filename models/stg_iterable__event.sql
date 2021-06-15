@@ -43,7 +43,8 @@ final as (
         transactional_data,
         unsub_source,
         user_agent,
-        user_agent_device
+        user_agent_device,
+        _fivetran_synced
     from fields
 )
 

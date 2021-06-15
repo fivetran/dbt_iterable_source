@@ -59,7 +59,8 @@ final as (
         to_phone_number,
         url,
         workflow_id,
-        workflow_name
+        workflow_name,
+        _fivetran_synced
     from fields
 )
 
