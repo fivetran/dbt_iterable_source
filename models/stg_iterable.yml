@@ -391,6 +391,8 @@ models:
         description: Source where the user signed up
       - name: updated_at
         description: Last update timestamp as epoch time in milliseconds
+      - name: phone_number 
+        description: Phone number associated with the user
   
   - name: stg_iterable__user_unsubscribed_channel_history
     description: Table containing the history of channels from which a user has unsubscribed.
