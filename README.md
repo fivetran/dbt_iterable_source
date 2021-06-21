@@ -16,6 +16,14 @@ This package contains staging models, designed to work simultaneously with our [
 * ID primary keys are prefixed with the name of the table. For example, the campaign history table's ID column is renamed `campaign_history_id`.
 
 ## Installation Instructions
+Add the following to your `packages.yml` file:
+```yml
+# packages.yml
+packages:
+  - package: fivetran/iterable_source
+    version: [">=0.1.0", "<0.2.0"]
+```
+
 Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ## Configuration

@@ -1,4 +1,4 @@
-{{ config(enabled=var('iterable__using_user_device_history', True)) }}
+{{ config(enabled=var('iterable__using_user_device_history', false)) }}
 
 -- todo: may want to make this ephemeral or do the window functions to select the final batch of devices here
 with base as (

@@ -1,1 +1,2 @@
-select * from {{ var('event_extension') }}
+select * 
+from {{ var('event_extension') }}

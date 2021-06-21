@@ -363,7 +363,7 @@ sources:
       - name: user_device_history
         description: Table capturing the history of devices associated with in-app and push notifications to a user.
         meta:
-          is_enabled: "{{ var('iterable__using_user_device_history', true) }}"
+          is_enabled: "{{ var('iterable__using_user_device_history', false) }}"
         columns:
           - name: application_name
             description: >
@@ -373,18 +373,14 @@ sources:
             description: User email associated with the device. 
           - name: endpoint_enabled
             description: Boolean that is true if the user has not disabled Push notifications and their endpoint remains enabled.
-          - name: identifier_for_vendor # always null in our data
+          - name: identifier_for_vendor
             description: An alphanumeric string that uniquely identifies a device to the app's vendor.
           - name: index
             description: Index representing the order in which devices were added to a user. 
-          - name: localized_model # always null in our data
-          - name: model # always null in our data
           - name: platform
             description: The device platform. Can be APNS, APNS_SANDBOX or GCM
           - name: platform_endpoint
             description: The platform's endpoint. 
-          - name: system_name # always null in our data
-          - name: system_version # always null in our data
           - name: token
             description: Device token registered for push notifications. 
           - name: updated_at
