@@ -67,9 +67,8 @@ sources:
       - name: campaign_supression_list_history  # this is mispelled and will be deprecated by Fivetran in favor of the correct spelling
         description: >
           Table containing a history of suppression lists. This was originally mispelled and will be deprecated in favor of the correct spelling.
-        freshness: null # this is going to be deprecated soon
         meta:
-          is_enabled: "{{ var('is_old_spelling', true)"
+          is_enabled: "{{ var('is_old_spelling', true) }}"
         columns:
           - name: campaign_id
             description: Reference to the campaign associated with the label
@@ -82,7 +81,7 @@ sources:
         description: >
           Table containing a history of suppression lists.
         meta:
-          is_enabled: "{{ var('is_old_spelling', false)"
+          is_enabled: "{{ var('is_old_spelling', false) }}"
         columns:
           - name: campaign_id
             description: Reference to the campaign associated with the label

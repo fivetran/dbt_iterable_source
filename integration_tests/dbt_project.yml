@@ -23,6 +23,8 @@ vars:
     user_device_history:                      "{{ ref('user_device_history_data') }}"
     user_unsubscribed_channel_history:        "{{ ref('user_unsubscribed_channel_history_data') }}"
     user_unsubscribed_message_type_history:   "{{ ref('user_unsubscribed_message_type_history_data') }}"
+
+    is_old_spelling: false
     
 seeds:
   iterable_source_integration_tests:
