@@ -12,7 +12,6 @@ vars:
     campaign_history:                         "{{ ref('campaign_history_data') }}"
     campaign_label_history:                   "{{ ref('campaign_label_history_data') }}"
     campaign_list_history:                    "{{ ref('campaign_list_history_data') }}"
-    campaign_metrics:                         "{{ ref('campaign_metrics_data') }}"
     campaign_suppression_list_history:        "{{ ref('campaign_suppression_list_history_data') }}"
     channel:                                  "{{ ref('channel_data') }}"
     event:                                    "{{ ref('event_data') }}"

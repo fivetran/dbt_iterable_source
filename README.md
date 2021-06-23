@@ -58,6 +58,8 @@ vars:
     iterable__using_user_device_history: true                        # default is FALSE
 ```
 
+### Deprecating Mispelling of `campaign_suppression_list_history`
+
 ### Changing the Build Schema
 By default this package will build the Iterable staging models within a schema titled (<target_schema> + `_stg_iterable`) in your target database. If this is not where your would like you Iterable staging data to be written to, add the following configuration to your `dbt_project.yml` file:
 
