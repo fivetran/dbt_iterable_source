@@ -28,7 +28,7 @@ fields as (
 final as (
     
     select 
-        email,
+        lower(email) as email,
         user_id,
         first_name,
         last_name,

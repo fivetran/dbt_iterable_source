@@ -32,7 +32,7 @@ final as (
         campaign_id,
         content_id,
         created_at,
-        email,
+        lower(email) as email,
         additional_properties,
         event_name,
         message_bus_id,
