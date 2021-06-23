@@ -60,6 +60,21 @@ vars:
 
 ### Deprecating Mispelling of `campaign_suppression_list_history`
 
+Originally, this connector schema mispelled `campaign_suppression_list_history` as `campaign_supression_list_history` (note the singular 'p'). The mispelled table will be phased out in existing connectors and replaced with a table with the correct spelling.
+
+By default, this package assumes users to have the **old spelling** (`campaign_supression_list_history`). To change this so that the package works with the newly spelled `campaign_suppression_list_history` source table, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+config-version: 2
+
+vars:
+    iterable_source:
+        campaign_suppression_list_history: "{{ source('iterable', 'campaign_suppression_list_history') }}" 
+        using_old_spelling: false # default true
+```
+
 ### Changing the Build Schema
 By default this package will build the Iterable staging models within a schema titled (<target_schema> + `_stg_iterable`) in your target database. If this is not where your would like you Iterable staging data to be written to, add the following configuration to your `dbt_project.yml` file:
 
