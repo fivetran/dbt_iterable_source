@@ -58,7 +58,7 @@ vars:
     iterable__using_user_device_history: true                        # default is FALSE
 ```
 
-### Deprecating Mispelling of `campaign_suppression_list_history`
+### Deprecating Misspelling of `campaign_suppression_list_history`
 
 Originally, this connector schema mispelled `campaign_suppression_list_history` as `campaign_supression_list_history` (note the singular 'p'). The mispelled table will be phased out in existing connectors and replaced with a table with the correct spelling.
 
