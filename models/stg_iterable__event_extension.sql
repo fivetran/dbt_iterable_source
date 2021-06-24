@@ -1,3 +1,6 @@
+{{
+    config( materialized='view' )
+}}
 
 with base as (
 
@@ -27,7 +30,7 @@ fields as (
 
 final as (
     select
-        _fivetran_id as _fivetran_event_id,
+        _fivetran_id as event_id,
         app_already_running as is_app_already_running,
         badge,
         canonical_url_id,

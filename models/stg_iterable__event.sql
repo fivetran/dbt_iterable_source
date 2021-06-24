@@ -1,4 +1,5 @@
--- todo: probably want to configure this as incremental? or just as a view takes like 1/100th of the time
+{{ config( materialized = 'view' ) }}
+
 with base as (
 
     select * 
@@ -32,6 +33,7 @@ final as (
         campaign_id,
         content_id,
         created_at,
+        cast( {{ dbt_utils.date_trunc('day', 'created_at') }} as date) as created_on,
         lower(email) as email,
         additional_properties,
         event_name,
