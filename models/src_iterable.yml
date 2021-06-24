@@ -66,7 +66,7 @@ sources:
 
       - name: campaign_supression_list_history  # this is mispelled and will be deprecated by Fivetran in favor of the correct spelling
         description: >
-          Table containing a history of suppression lists. This was originally mispelled and will be deprecated in favor of the correct spelling.
+          Table containing a history of suppression lists. This was originally misspelled and will be deprecated in favor of the correct spelling.
         meta:
           is_enabled: "{{ var('is_old_spelling', true) }}"
         columns:
