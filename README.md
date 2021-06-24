@@ -60,7 +60,7 @@ vars:
 
 ### Deprecating Misspelling of `campaign_suppression_list_history`
 
-Originally, this connector schema mispelled `campaign_suppression_list_history` as `campaign_supression_list_history` (note the singular 'p'). The mispelled table will be phased out in existing connectors and replaced with a table with the correct spelling.
+Originally, this connector schema misspelled `campaign_suppression_list_history` as `campaign_supression_list_history` (note the singular 'p'). The misspelled table will be phased out in existing connectors and replaced with a table with the correct spelling.
 
 By default, this package assumes users to have the **old spelling** (`campaign_supression_list_history`). To change this so that the package works with the newly spelled `campaign_suppression_list_history` source table, add the following configuration to your `dbt_project.yml` file:
 
