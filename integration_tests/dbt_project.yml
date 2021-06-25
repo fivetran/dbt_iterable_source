@@ -34,6 +34,7 @@ seeds:
     event_data:
       +column_types:
         transactional_data: "{{ 'varchar(100)'  if target.type in ('redshift', 'postgres') else 'string'}}"
+        created_at: timestamp
     event_extension_data:
       +column_types:
         payload: "{{ 'varchar(100)'  if target.type in ('redshift', 'postgres') else 'string'}}"
