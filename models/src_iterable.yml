@@ -64,11 +64,11 @@ sources:
           - name: updated_at
             description: Last update timestamp as epoch time in milliseconds
 
-      - name: campaign_supression_list_history  # this is mispelled and will be deprecated by Fivetran in favor of the correct spelling
+      - name: campaign_supression_list_history  # this is misspelled and will be deprecated by Fivetran in favor of the correct spelling
         description: >
           Table containing a history of suppression lists. This was originally misspelled and will be deprecated in favor of the correct spelling.
         meta:
-          is_enabled: "{{ var('is_old_spelling', true) }}"
+          is_enabled: "{{ var('is_old_spelling', false) }}"
         columns:
           - name: campaign_id
             description: Reference to the campaign associated with the label
@@ -81,7 +81,7 @@ sources:
         description: >
           Table containing a history of suppression lists.
         meta:
-          is_enabled: "{{ var('is_old_spelling', false) }}"
+          is_enabled: "{{ not var('is_old_spelling', false) }}"
         columns:
           - name: campaign_id
             description: Reference to the campaign associated with the label

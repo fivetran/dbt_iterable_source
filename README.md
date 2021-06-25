@@ -60,11 +60,11 @@ vars:
 
 ### Deprecating Misspelling of `campaign_suppression_list_history`
 
-Originally, this connector schema misspelled `campaign_suppression_list_history` as `campaign_supression_list_history` (note the singular `p`). Starting in June 2021, the misspelled table will be phased out and replaced with a table with the correct spelling.
+Originally, this connector schema misspelled `campaign_suppression_list_history` as `campaign_supression_list_history` (note the singular `p`). As of June 2021, the misspelled table will be phased out and replaced with a table with the correct spelling.
 
 Connectors set up after June 2021 will have the **new correct spelling**, and pre-existing connectors will contain both for a limited time, after which Fivetran will no longer support syncing the old table, `campaign_supression_list_history`.
 
-For now, by default, this package refers to the **old spelling** (`campaign_supression_list_history`). To change this so that the package works with the newly spelled `campaign_suppression_list_history` source table, add the following configuration to your `dbt_project.yml` file:
+Thus, by default, this package refers to the **new spelling** (`campaign_suppression_list_history`). To change this so that the package works with the old misspelled source table, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
@@ -73,8 +73,8 @@ config-version: 2
 
 vars:
     iterable_source:
-        campaign_suppression_list_history: "{{ source('iterable', 'campaign_suppression_list_history') }}" 
-        using_old_spelling: false # default true
+        campaign_suppression_list_history: "{{ source('iterable', 'campaign_supression_list_history') }}" 
+        using_old_spelling: true # default false
 ```
 
 ### Changing the Build Schema
