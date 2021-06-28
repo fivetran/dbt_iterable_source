@@ -1,21 +1,23 @@
-# Iterable (Source)
+# Iterable Source
 
 This package models Iterable data from [Fivetran's connector](https://fivetran.com/docs/applications/Iterable). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/iterable#schemainformation).
 
 This package enriches your Fivetran data by doing the following:
 
-* Adds descriptions to tables and columns that are synced using Fivetran
-* Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
-* Models staging tables, which will be used in our transform package
+- Adds descriptions to tables and columns that are synced using Fivetran.
+- Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
+- Models staging tables, which will be used in our transform package.
 
 ## Models
 
 This package contains staging models, designed to work simultaneously with our [Iterable transformation package](https://github.com/fivetran/dbt_iterable). The staging models name columns consistently across all packages:
-* Boolean fields are prefixed with `is_` or `has_`
-* Timestamps are appended with `_at`
-* ID primary keys are prefixed with the name of the table. For example, the campaign history table's ID column is renamed `campaign_history_id`.
+
+- Boolean fields are prefixed with `is_` or `has_`
+- Timestamps are appended with `_at`
+- ID primary keys are prefixed with the name of the table. For example, the campaign history table's ID column is renamed `campaign_history_id`.
 
 ## Installation Instructions
+
 Add the following to your `packages.yml` file:
 ```yml
 # packages.yml
@@ -27,6 +29,7 @@ packages:
 Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ## Configuration
+
 By default, this package looks for your Iterable data in the `iterable` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Iterable data is, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
@@ -60,11 +63,11 @@ vars:
 
 ### Deprecating Misspelling of `campaign_suppression_list_history`
 
-Originally, this connector schema misspelled `campaign_suppression_list_history` as `campaign_supression_list_history` (note the singular `p`). As of June 2021, the misspelled table will be phased out and replaced with a table with the correct spelling.
+Originally, this connector schema misspelled `CAMPAIGN_SUPPRESSION_LIST_HISTORY` as `CAMPAIGN_SUPRESSION_LIST_HISTORY` (note the singular `p`). As of June 2021, the misspelled table will be phased out and replaced with a table with the correct spelling.
 
-Connectors set up after June 2021 will have the **new correct spelling**, and pre-existing connectors will contain both for a limited time, after which Fivetran will no longer support syncing the old table, `campaign_supression_list_history`.
+Connectors set up after June 2021 will have the **new correct spelling**, and pre-existing connectors will contain both for a limited time, after which Fivetran will no longer support syncing the old table, `CAMPAIGN_SUPRESSION_LIST_HISTORY`.
 
-Thus, by default, this package refers to the **new spelling** (`campaign_suppression_list_history`). To change this so that the package works with the old misspelled source table, add the following configuration to your `dbt_project.yml` file.
+Thus, by default, this package refers to the **new spelling** (`CAMPAIGN_SUPPRESSION_LIST_HISTORY`). To change this so that the package works with the old misspelled source table, add the following configuration to your `dbt_project.yml` file.
 
 ```yml
 # dbt_project.yml
