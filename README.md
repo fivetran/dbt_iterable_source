@@ -67,7 +67,7 @@ Originally, this connector schema misspelled the `CAMPAIGN_SUPPRESSION_LIST_HIST
 
 Connectors set up after June 2021 will have the _new correct spelling_, and pre-existing connectors will contain both for a limited time, after which Fivetran will no longer support syncing the old table, `CAMPAIGN_SUPRESSION_LIST_HISTORY`.
 
-Thus, by default, this package refers to the _new spelling_ (`CAMPAIGN_SUPPRESSION_LIST_HISTORY`). To change this so that the package works with the old misspelled source table, add the following configuration to your `dbt_project.yml` file.
+Thus, by default, this package refers to the _new spelling_ (`CAMPAIGN_SUPPRESSION_LIST_HISTORY`). To change this so that the package works with the old misspelled source table, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
