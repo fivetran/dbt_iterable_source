@@ -61,13 +61,13 @@ vars:
     iterable__using_user_device_history: true                        # default is FALSE
 ```
 
-### Deprecating Misspelling of `campaign_suppression_list_history`
+### Deprecating `CAMPAIGN_SUPRESSION_LIST_HISTORY` table
 
-Originally, this connector schema misspelled `CAMPAIGN_SUPPRESSION_LIST_HISTORY` as `CAMPAIGN_SUPRESSION_LIST_HISTORY` (note the singular `p`). As of June 2021, the misspelled table will be phased out and replaced with a table with the correct spelling.
+Originally, this connector schema misspelled the `CAMPAIGN_SUPPRESSION_LIST_HISTORY` table as `CAMPAIGN_SUPRESSION_LIST_HISTORY` (note the singular `P`). As of June 2021, the misspelled table will be phased out and replaced with a table with the correct spelling.
 
-Connectors set up after June 2021 will have the **new correct spelling**, and pre-existing connectors will contain both for a limited time, after which Fivetran will no longer support syncing the old table, `CAMPAIGN_SUPRESSION_LIST_HISTORY`.
+Connectors set up after June 2021 will have the _new correct spelling_, and pre-existing connectors will contain both for a limited time, after which Fivetran will no longer support syncing the old table, `CAMPAIGN_SUPRESSION_LIST_HISTORY`.
 
-Thus, by default, this package refers to the **new spelling** (`CAMPAIGN_SUPPRESSION_LIST_HISTORY`). To change this so that the package works with the old misspelled source table, add the following configuration to your `dbt_project.yml` file.
+Thus, by default, this package refers to the _new spelling_ (`CAMPAIGN_SUPPRESSION_LIST_HISTORY`). To change this so that the package works with the old misspelled source table, add the following configuration to your `dbt_project.yml` file.
 
 ```yml
 # dbt_project.yml
@@ -81,7 +81,8 @@ vars:
 ```
 
 ### Changing the Build Schema
-By default this package will build the Iterable staging models within a schema titled (<target_schema> + `_stg_iterable`) in your target database. If this is not where your would like you Iterable staging data to be written to, add the following configuration to your `dbt_project.yml` file:
+
+By default, this package will build the Iterable staging models within a schema titled (<target_schema> + `_stg_iterable`) in your target database. If this is not where your would like you Iterable staging data to be written to, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
@@ -93,9 +94,10 @@ models:
 ```
 
 ## Contributions
+
 Additional contributions to this package are very welcome! Please create issues
-or open PRs against `main`. Check out 
-[this post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) 
+or open PRs against `main`. See the 
+[Discourse post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) 
 on the best workflow for contributing to a package.
 
 ## Database Support
