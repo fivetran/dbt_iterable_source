@@ -1,6 +1,6 @@
 # Iterable Source
 
-This package models Iterable data from [Fivetran's connector](https://fivetran.com/docs/applications/Iterable). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/iterable#schemainformation).
+This package models Iterable data from [Fivetran's connector](https://fivetran.com/docs/applications/iterable). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/iterable#schemainformation).
 
 This package enriches your Fivetran data by doing the following:
 
