@@ -12,8 +12,8 @@ This package enriches your Fivetran data by doing the following:
 
 This package contains staging models, designed to work simultaneously with our [Iterable transformation package](https://github.com/fivetran/dbt_iterable). The staging models name columns consistently across all packages:
 
-- Boolean fields are prefixed with `is_` or `has_`
-- Timestamps are appended with `_at`
+- Boolean fields are prefixed with `is_` or `has_`.
+- Timestamps are appended with `_at`.
 - ID primary keys are prefixed with the name of the table. For example, the campaign history table's ID column is renamed `campaign_history_id`.
 
 ## Installation Instructions
