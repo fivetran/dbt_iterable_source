@@ -4,9 +4,9 @@ This package models Iterable data from [Fivetran's connector](https://fivetran.c
 
 This package enriches your Fivetran data by doing the following:
 
-- Adds descriptions to tables and columns that are synced using Fivetran.
-- Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
-- Models staging tables to be used in our transform package.
+- Adding descriptions to tables and columns that are synced using Fivetran.
+- Adding column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
+- Using models staging tables in our transform package.
 
 ## Models
 
