@@ -6,7 +6,7 @@ This package enriches your Fivetran data by doing the following:
 
 - Adding descriptions to tables and columns that are synced using Fivetran.
 - Adding column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
-- Using models staging tables in our transform package.
+- Using staging models in our transform package.
 
 ## Models
 
