@@ -67,7 +67,7 @@ sources:
       - name: campaign_suppression_list_history  # this is the correct spelling
         description: >
           Table containing a history of suppression lists.
-        identifier: "{{ var('campaign_suppression_list_history_table', 'campaign_suppression_list_history') }}"
+        identifier: "{{ var('iterable__campaign_suppression_list_history_table', 'campaign_suppression_list_history') }}"
         columns:
           - name: campaign_id
             description: Reference to the campaign associated with the label
