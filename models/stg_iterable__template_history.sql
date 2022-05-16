@@ -25,11 +25,11 @@ final as (
         id as template_id,
         name as template_name,
         template_type,
-        created_at,
+        cast (created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         client_template_id,
         creator_user_id,
         message_type_id,
-        updated_at,
+        cast (updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
         _fivetran_synced
     from fields
 )

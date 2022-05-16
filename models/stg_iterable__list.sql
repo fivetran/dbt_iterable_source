@@ -26,7 +26,7 @@ final as (
         id as list_id,
         name as list_name,
         list_type,
-        created_at,
+        cast (created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         _fivetran_synced
     from fields
 )

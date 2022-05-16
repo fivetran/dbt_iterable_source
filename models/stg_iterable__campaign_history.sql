@@ -29,14 +29,14 @@ final as (
     
     select 
         id as campaign_id,
-        updated_at,
+        cast (updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
         name as campaign_name,
         campaign_state,
         type as campaign_type,
         send_size,
-        start_at,
-        ended_at,
-        created_at,
+        cast (start_at as {{ dbt_utils.type_timestamp() }}) as start_at,
+        cast (ended_at as {{ dbt_utils.type_timestamp() }}) as ended_at,
+        cast (created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         recurring_campaign_id,
         created_by_user_id,
         template_id,

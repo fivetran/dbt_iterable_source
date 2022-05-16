@@ -35,7 +35,7 @@ final as (
         platform,
         platform_endpoint,
         endpoint_enabled as is_endpoint_enabled,
-        updated_at,
+        cast (updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
         _fivetran_synced
 
     from fields

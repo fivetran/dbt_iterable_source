@@ -31,7 +31,7 @@ final as (
     select 
         campaign_id,
         label,
-        updated_at,
+        cast (updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
         _fivetran_synced
     from fields
 )

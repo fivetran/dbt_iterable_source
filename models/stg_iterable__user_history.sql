@@ -36,7 +36,7 @@ final as (
         phone_number,
         signup_date,
         signup_source,
-        updated_at,
+        cast (updated_at as {{ dbt_utils.type_timestamp() }}) as updated_at,
         _fivetran_synced
     from fields
 )

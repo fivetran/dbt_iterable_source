@@ -32,7 +32,7 @@ final as (
         _fivetran_id as event_id,
         campaign_id,
         content_id,
-        created_at,
+        cast (created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         cast( {{ dbt_utils.date_trunc('day', 'created_at') }} as date) as created_on,
         lower(email) as email,
         additional_properties,
