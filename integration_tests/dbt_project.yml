@@ -22,6 +22,8 @@ vars:
     iterable_user_unsubscribed_channel_history_identifier:        "user_unsubscribed_channel_history_data"
     iterable_user_unsubscribed_message_type_history_identifier:   "user_unsubscribed_message_type_history_data"
 
+    iterable_schema: iterable_source_integration_tests
+
     is_old_spelling: false
     
 seeds:
