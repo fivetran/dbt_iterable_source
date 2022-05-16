@@ -68,10 +68,9 @@ sources:
             description: Last update timestamp as epoch time in milliseconds
 
       - name: campaign_suppression_list_history  # this is the correct spelling
-        identifier: "{{ var('iterable_campaign_suppression_list_history, 'campaign_suppression_list_history')}}"  
+        identifier: "{{ var('iterable_campaign_suppression_list_history_identifier', 'campaign_suppression_list_history')}}"  
         description: >
           Table containing a history of suppression lists.
-        identifier: "{{ var('iterable__campaign_suppression_list_history_table', 'campaign_suppression_list_history') }}"
         columns:
           - name: campaign_id
             description: Reference to the campaign associated with the label
