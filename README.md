@@ -15,7 +15,7 @@
 
 # Iterable Source dbt Package ([Docs](https://fivetran.github.io/dbt_iterable_source/))
 # 📣 What does this dbt package do?
-- Materializes [Iterable staging tables](https://fivetran.github.io/dbt_iterable_source/#!/overview/iterable_source/models) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/iterable/#schemainformation). These staging tables clean, test, and prepare your Iterable data from [Fivetran's connector](https://fivetran.com/docs/applications/iterable) for analysis by doing the following:
+- Materializes [Iterable staging tables](https://fivetran.github.io/dbt_iterable_source/#!/overview/iterable_source/models?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/iterable/#schemainformation). These staging tables clean, test, and prepare your Iterable data from [Fivetran's connector](https://fivetran.com/docs/applications/iterable) for analysis by doing the following:
   - Name columns for consistency across all packages and for easier analysis
   - Adds freshness tests to source data
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
