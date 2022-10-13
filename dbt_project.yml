@@ -1,17 +1,13 @@
 config-version: 2
-
 name: 'iterable_source'
-version: '0.4.0'
-
-require-dbt-version: [">=1.0.0", "<2.0.0"]
-
+version: '0.5.0'
+require-dbt-version: [">=1.2.0", "<2.0.0"]
 models:
   iterable_source:
     +materialized: table
     +schema: stg_iterable
     tmp:
       +materialized: view
-
 vars:
   iterable_source:
     campaign_history: "{{ source('iterable', 'campaign_history') }}"
