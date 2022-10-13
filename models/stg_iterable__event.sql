@@ -33,7 +33,7 @@ final as (
         campaign_id,
         content_id,
         created_at,
-        cast( {{ dbt_utils.date_trunc('day', 'created_at') }} as date) as created_on,
+        cast( {{ dbt.date_trunc('day', 'created_at') }} as date) as created_on,
         lower(email) as email,
         additional_properties,
         event_name,
