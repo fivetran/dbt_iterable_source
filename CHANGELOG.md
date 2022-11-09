@@ -1,6 +1,6 @@
 # dbt_iterable_source v0.4.1
-Added `campaign_suppression_list_history` disabling
-- Added variable `iterable__using_campaign_suppression_list_history` to disable `stg_iterable__campaign_suppression_list_history` if the respective source table is not being used. ()
+Added `campaign_suppression_list_history` disabling variable
+- Added variable `iterable__using_campaign_suppression_list_history` to disable `stg_iterable__campaign_suppression_list_history` if the respective source table is not being used. ([#21](https://github.com/fivetran/dbt_iterable_source/pull/21))
 ## Contributors
 Thank you @awpharr for raising these to our attention! ([#19](https://github.com/fivetran/dbt_iterable/issues/19))
 
