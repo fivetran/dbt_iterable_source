@@ -5,7 +5,8 @@ version: '0.4.1'
 
 profile: 'integration_tests'
 
-vars:
+vars: 
+  iterable_schema: iterable_source_integration_tests_1
   iterable_source:
     iterable_schema:                          iterable_source_integration_tests
     campaign_history:                         "{{ ref('campaign_history_data') }}"
