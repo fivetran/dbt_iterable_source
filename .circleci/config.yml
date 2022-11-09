@@ -31,6 +31,7 @@ jobs:
             dbt deps
             dbt seed --target redshift --full-refresh
             dbt run --target redshift --full-refresh
+            dbt run --vars '{iterable__using_campaign_label_history: false, iterable__using_user_unsubscribed_message_type_history: false, iterable__using_campaign_suppression_list_history: false, iterable__using_user_device_history: true}' --full-refresh --target redshift
             dbt test --target redshift
       - run:
           name: "Run Tests - Postgres"
@@ -41,6 +42,7 @@ jobs:
             dbt deps
             dbt seed --target postgres --full-refresh
             dbt run --target postgres --full-refresh
+            dbt run --vars '{iterable__using_campaign_label_history: false, iterable__using_user_unsubscribed_message_type_history: false, iterable__using_campaign_suppression_list_history: false, iterable__using_user_device_history: true}' --full-refresh --target postgres 
             dbt test --target postgres
       - run:
           name: "Run Tests - Snowflake"
@@ -51,6 +53,7 @@ jobs:
             dbt deps
             dbt seed --target snowflake --full-refresh
             dbt run --target snowflake --full-refresh
+            dbt run --vars '{iterable__using_campaign_label_history: false, iterable__using_user_unsubscribed_message_type_history: false, iterable__using_campaign_suppression_list_history: false, iterable__using_user_device_history: true}' --full-refresh --target snowflake 
             dbt test --target snowflake
       - run:
           name: "Run Tests - BigQuery"
@@ -64,6 +67,7 @@ jobs:
             dbt deps
             dbt seed --target bigquery --full-refresh
             dbt run --target bigquery --full-refresh
+            dbt run --vars '{iterable__using_campaign_label_history: false, iterable__using_user_unsubscribed_message_type_history: false, iterable__using_campaign_suppression_list_history: false, iterable__using_user_device_history: true}' --full-refresh --target bigquery 
             dbt test --target bigquery
       - save_cache:
           key: deps2-{{ .Branch }}
