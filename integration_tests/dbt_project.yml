@@ -1,13 +1,13 @@
 config-version: 2
 
 name: 'iterable_source_integration_tests'
-version: '0.2.0'
+version: '0.4.1'
 
 profile: 'integration_tests'
 
-vars:
+vars: 
   iterable_source:
-    iterable_schema:                          iterable_source_integration_tests
+    iterable_schema:                          iterable_source_integration_tests_1
     campaign_history:                         "{{ ref('campaign_history_data') }}"
     campaign_label_history:                   "{{ ref('campaign_label_history_data') }}"
     campaign_list_history:                    "{{ ref('campaign_list_history_data') }}"

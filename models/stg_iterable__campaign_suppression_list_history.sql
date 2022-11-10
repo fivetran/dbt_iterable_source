@@ -1,3 +1,4 @@
+{{ config(enabled=var('iterable__using_campaign_suppression_list_history', True)) }}
 
 with base as (
 
