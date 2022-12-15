@@ -1,7 +1,9 @@
 config-version: 2
 name: 'iterable_source_integration_tests'
+
 version: '0.5.0'
 profile: 'integration_tests'
+
 vars:
   iterable_source:
     iterable_schema: iterable_source_integration_tests_1
@@ -20,6 +22,7 @@ vars:
     user_unsubscribed_channel_history: "{{ ref('user_unsubscribed_channel_history_data') }}"
     user_unsubscribed_message_type_history: "{{ ref('user_unsubscribed_message_type_history_data') }}"
     is_old_spelling: false
+    
 seeds:
   iterable_source_integration_tests:
     +quote_columns: "{{ true if target.type == 'redshift' else false }}"

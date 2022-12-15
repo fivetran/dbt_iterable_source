@@ -72,8 +72,9 @@ config-version: 2
 vars:
     iterable__using_campaign_label_history: false                    # default is true
     iterable__using_user_unsubscribed_message_type_history: false    # default is true
+    iterable__using_campaign_suppression_list_history: false         # default is true   
 
-    iterable__using_user_device_history: true                        # default is FALSE
+    iterable__using_user_device_history: true                        # default is false
 ```
 
 ### Deprecated `CAMPAIGN_SUPRESSION_LIST_HISTORY` table
