@@ -1,3 +1,8 @@
+# dbt_iterable_source v0.5.1
+## 🎉 Features
+- Added `iterable_[source_table_name]_identifier` variables to allow for easier flexibility of the package to refer to source tables with different names. ([#23](https://github.com/fivetran/dbt_iterable_source/pull/23))
+- Updated README with identifier instructions and format update.
+
 # dbt_iterable_source v0.5.0
 
 ## 🚨 Breaking Changes 🚨:

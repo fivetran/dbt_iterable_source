@@ -15,7 +15,7 @@
 
 - Produces staging tables that leverage Iterable data from [Fivetran's connector](https://fivetran.com/docs/applications/iterable) in the format described by [this ERD](https://fivetran.com/docs/applications/iterable#schemainformation).
   - Adds descriptions to tables and columns that are synced using Fivetran
-  - Models staging t+ables, which will be used in our transform package
+  - Models staging tables, which will be used in our transform package
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your source and modeled Iterable data through the [dbt docs site](https://fivetran.github.io/dbt_iterable_source/).
 - These tables are designed to work simultaneously with our [Iterable transformation package](https://github.com/fivetran/dbt_iterable/).
