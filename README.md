@@ -62,18 +62,6 @@ vars:
     iterable__using_user_device_history: true                        # default is false
 ```
 
-### Deprecated `CAMPAIGN_SUPRESSION_LIST_HISTORY` table
-
-The Iterable connector schema originally misspelled the `CAMPAIGN_SUPPRESSION_LIST_HISTORY` table as `CAMPAIGN_SUPRESSION_LIST_HISTORY` (note the singular `P`). As of August 2021, Fivetran has deprecated the misspelled table and will only continue syncing the correctly named `CAMPAIGN_SUPPRESSION_LIST_HISTORY` table.
-
-By default, this package refers to the new table (`CAMPAIGN_SUPPRESSION_LIST_HISTORY`). To change this so that the package works with the old misspelled source table (we do not recommend this, however), add the following configuration to your `dbt_project.yml` file:
-
-```yml
-vars:
-    iterable_source:
-        iterable__campaign_suppression_list_history_table: "campaign_supression_list_history"
-```
-
 ## (Optional) Step 5: Additional configurations
 <details><summary>Expand for details</summary>
 <br>
@@ -86,6 +74,17 @@ By default, this package will build the Iterable staging models within a schema 
 models:
     iterable_source:
         +schema: my_new_schema_name # leave blank for just the target_schema
+```
+
+### Deprecated `CAMPAIGN_SUPRESSION_LIST_HISTORY` table
+
+The Iterable connector schema originally misspelled the `CAMPAIGN_SUPPRESSION_LIST_HISTORY` table as `CAMPAIGN_SUPRESSION_LIST_HISTORY` (note the singular `P`). As of August 2021, Fivetran has deprecated the misspelled table and will only continue syncing the correctly named `CAMPAIGN_SUPPRESSION_LIST_HISTORY` table.
+
+By default, this package refers to the new table (`CAMPAIGN_SUPPRESSION_LIST_HISTORY`). To change this so that the package works with the old misspelled source table (we do not recommend this, however), add the following configuration to your `dbt_project.yml` file:
+
+```yml
+vars:
+    iterable__campaign_suppression_list_history_table: "campaign_supression_list_history"
 ```
 
 ### Change the source table references
