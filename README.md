@@ -13,7 +13,7 @@
 # Iterable Source dbt Package ([docs](https://fivetran.github.io/dbt_iterable_source/))
 # 📣 What does this dbt package do?
 
-- Produces staging tables that leverage Iterable data from [Fivetran's connector](https://fivetran.com/docs/applications/iterable) in the format described by [this ERD](https://fivetran.com/docs/applications/iterable#schemainformation).
+- Materializes [Iterable staging tables](https://fivetran.github.io/dbt_iterable_source/#!/overview/iterable_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/iterable#schemainformation). These staging tables clean, test, and prepare your Iterable data from [Fivetran's connector](https://fivetran.com/docs/applications/iterable) for analysis by doing the following:
   - Adds descriptions to tables and columns that are synced using Fivetran
   - Models staging tables, which will be used in our transform package
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
@@ -112,15 +112,15 @@ This dbt package is dependent on the following dbt packages. Please be aware tha
 ```yml
 packages:
     - package: fivetran/fivetran_utils
-      version: [">=0.3.0", "<0.4.0"]
+      version: [">=0.4.0", "<0.5.0"]
 
     - package: dbt-labs/dbt_utils
-      version: [">=0.8.0", "<0.9.0"]
+      version: [">=1.0.0", "<2.0.0"]
 ```
 
 # 🙌 How is this package maintained and can I contribute?
 ## Package Maintenance
-The Fivetran team maintaining this package _only_ maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/iterable/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_iterable_source/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
+The Fivetran team maintaining this package _only_ maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/iterable_source/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_iterable_source/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ## Contributions
 A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions! 
