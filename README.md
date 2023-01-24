@@ -75,18 +75,6 @@ models:
     iterable_source:
         +schema: my_new_schema_name # leave blank for just the target_schema
 ```
-
-### Deprecated `CAMPAIGN_SUPRESSION_LIST_HISTORY` table
-
-The Iterable connector schema originally misspelled the `CAMPAIGN_SUPPRESSION_LIST_HISTORY` table as `CAMPAIGN_SUPRESSION_LIST_HISTORY` (note the singular `P`). As of August 2021, Fivetran has deprecated the misspelled table and will only continue syncing the correctly named `CAMPAIGN_SUPPRESSION_LIST_HISTORY` table.
-
-By default, this package refers to the new table (`CAMPAIGN_SUPPRESSION_LIST_HISTORY`). To change this so that the package works with the old misspelled source table (we do not recommend this, however), add the following configuration to your `dbt_project.yml` file:
-
-```yml
-vars:
-    iterable__campaign_suppression_list_history_table: "campaign_supression_list_history"
-```
-
 ### Change the source table references
 If an individual source table has a different name than what the package expects, add the table name as it appears in your destination to the respective variable:
 > IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_iterable_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
@@ -95,7 +83,16 @@ If an individual source table has a different name than what the package expects
 vars:
     iterable_<default_source_table_name>_identifier: "your_table_name"
 ```
+### Deprecated `CAMPAIGN_SUPRESSION_LIST_HISTORY` table
 
+The Iterable connector schema originally misspelled the `CAMPAIGN_SUPPRESSION_LIST_HISTORY` table as `CAMPAIGN_SUPRESSION_LIST_HISTORY` (note the singular `P`). As of August 2021, Fivetran has deprecated the misspelled table and will only continue syncing the correctly named `CAMPAIGN_SUPPRESSION_LIST_HISTORY` table.
+
+By default, this package refers to the new table (`CAMPAIGN_SUPPRESSION_LIST_HISTORY`). To change this so that the package works with the old misspelled source table (we do not recommend this, however), add the following configuration to your `dbt_project.yml` file:
+
+```yml
+vars:
+    iterable_campaign_suppression_list_history_identifier: "campaign_supression_list_history"
+```
 </details>
 
 ## (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™

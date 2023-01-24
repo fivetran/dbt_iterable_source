@@ -68,13 +68,7 @@ sources:
             description: Last update timestamp as epoch time in milliseconds
 
       - name: campaign_suppression_list_history  # this is the correct spelling
-        # if statements in identifier are to account for historical variables used for this table while also allowing new format to be used
-        identifier:  >
-          {%- if var('iterable__campaign_suppression_list_history_table', False) -%}
-          {{ var('iterable__campaign_suppression_list_history_table', 'campaign_suppression_list_history') }}
-          {%- else -%}
-          {{ var('iterable_campaign_suppression_list_history_identifier', 'campaign_suppression_list_history') }}
-          {%- endif -%}
+        identifier: "{{ var('iterable_campaign_suppression_list_history_identifier', 'campaign_suppression_list_history') }}"
         description: >
           Table containing a history of suppression lists.
         columns:
