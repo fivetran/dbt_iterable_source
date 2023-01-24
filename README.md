@@ -49,9 +49,9 @@ vars:
 
 ## Step 4: Enabling/Disabling Models
 
-Your Iterable connector might not sync every table that this package expects. If your syncs exclude certain tables, it is either because you do not use that functionality in Iterable or have actively excluded some tables from your syncs. In order to enable or disable the relevant functionality in the package, you will need to add the relevant variables.
+Your Iterable connector might not sync every table that this package expects. If your syncs exclude certain tables, it is either because you do not use that functionality in Iterable or have actively excluded some tables from your syncs. In order to enable or disable the relevant tables in the package, you will need to add the following variable(s) to your `dbt_project.yml` file.
 
-By default, all variables are assumed to be `true` (with exception of `iterable__using_user_device_history`, which is set to `false`). You only need to add variables for the tables you would like to enable or disable respectively:
+By default, all variables are assumed to be `true` (with exception of `iterable__using_user_device_history`, which is set to `false`). 
 
 ```yml
 vars:
