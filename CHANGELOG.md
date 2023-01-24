@@ -1,3 +1,13 @@
+# dbt_iterable_source v0.6.0
+## 🚨 Breaking Changes 🚨
+- Added `iterable_[source_table_name]_identifier` variables to allow easier flexibility of the package to refer to source tables with different names. 
+- **Note!** For the table `campaign_suppression_list_history`, the identifier variable has been updated from `iterable__campaign_suppression_list_history_table` to `iterable_campaign_suppression_list_history_identifier` to align with the current naming convention. If you are using the former variable in your `dbt_project.yml`, you will need to update it for the package to run.
+([#23](https://github.com/fivetran/dbt_iterable_source/pull/23))
+
+
+## 🎉 Features
+- Updated README with identifier instructions and format update. ([#23](https://github.com/fivetran/dbt_iterable_source/pull/23))
+
 # dbt_iterable_source v0.5.0
 
 ## 🚨 Breaking Changes 🚨:

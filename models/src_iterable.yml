@@ -15,6 +15,7 @@ sources:
 
     tables:
       - name: campaign_history
+        identifier: "{{ var('iterable_campaign_history_identifier', 'campaign_history')}}"
         description: Table containing a history of campaigns.
         columns:
           - name: id
@@ -43,6 +44,7 @@ sources:
             description: Reference to the campaign template
 
       - name: campaign_label_history
+        identifier: "{{ var('iterable_campaign_label_history_identifier', 'campaign_label_history')}}"
         description: Table containing a history of labels.
         meta:
           is_enabled: "{{ var('iterable__using_campaign_label_history', true) }}"
@@ -55,6 +57,7 @@ sources:
             description: Last update timestamp as epoch time in milliseconds
 
       - name: campaign_list_history
+        identifier: "{{ var('iterable_campaign_list_history_identifier', 'campaign_list_history')}}"
         description: Table containing a history of lists.
         columns:
           - name: campaign_id
@@ -65,9 +68,9 @@ sources:
             description: Last update timestamp as epoch time in milliseconds
 
       - name: campaign_suppression_list_history  # this is the correct spelling
+        identifier: "{{ var('iterable_campaign_suppression_list_history_identifier', 'campaign_suppression_list_history') }}"
         description: >
           Table containing a history of suppression lists.
-        identifier: "{{ var('iterable__campaign_suppression_list_history_table', 'campaign_suppression_list_history') }}"
         columns:
           - name: campaign_id
             description: Reference to the campaign associated with the label
@@ -77,6 +80,7 @@ sources:
             description: Last update timestamp as epoch time in milliseconds
 
       - name: channel
+        identifier: "{{ var('iterable_channel_identifier', 'channel')}}"
         description: Table containing unique channels.     
         columns:
           - name: id
@@ -89,6 +93,7 @@ sources:
             description: The message medium associated with the channel
 
       - name: event
+        identifier: "{{ var('iterable_event_identifier', 'event')}}"
         description: Table containing individual events within campaigns.     
         columns:
           - name: _fivetran_id
@@ -125,6 +130,7 @@ sources:
             description: The device of the user agent
       
       - name: event_extension
+        identifier: "{{ var('iterable_event_extension_identifier', 'event_extension')}}"
         description: Table containing additional properties from the event table.
         columns:
           - name: _fivetran_id
@@ -195,6 +201,7 @@ sources:
             description: Name of the workflow which the event originated
 
       - name: list
+        identifier: "{{ var('iterable_list_identifier', 'list')}}"
         description: Table containing users and the lists the users are associated with.
         columns:
           - name: id
@@ -207,6 +214,7 @@ sources:
             description: Creation timestamp as epoch time in milliseconds
 
       - name: message_type
+        identifier: "{{ var('iterable_message_type_identifier', 'message_type')}}"
         description: Table containing unique message types.
         columns:
           - name: id
@@ -217,6 +225,7 @@ sources:
             description: Channel that this message type belongs to
 
       - name: template_history
+        identifier: "{{ var('iterable_template_history_identifier', 'template_history')}}"
         description: Table containing unique templates used across campaigns.
         columns:
           - name: id
@@ -237,6 +246,7 @@ sources:
             description: Last update timestamp as epoch time in milliseconds
 
       - name: user_history
+        identifier: "{{ var('iterable_user_history_identifier', 'user_history')}}"
         description: Table containing individual user history information.
         columns:
           - name: email
@@ -257,6 +267,7 @@ sources:
             description: Last update timestamp as epoch time in milliseconds
 
       - name: user_device_history
+        identifier: "{{ var('iterable_user_device_history_identifier', 'user_device_history')}}"
         description: Table capturing the history of devices associated with in-app and push notifications to a user.
         meta:
           is_enabled: "{{ var('iterable__using_user_device_history', false) }}"
@@ -283,6 +294,7 @@ sources:
             description: Timestamp of when this device was updated last.
       
       - name: user_unsubscribed_channel_history
+        identifier: "{{ var('iterable_user_unsubscribed_channel_history_identifier', 'user_unsubscribed_channel_history')}}"
         description: Table containing the history of channels from which a user has unsubscribed.
         columns:
           - name: channel_id
@@ -294,6 +306,7 @@ sources:
 
 
       - name: user_unsubscribed_message_type_history
+        identifier: "{{ var('iterable_user_unsubscribed_message_type_history_identifier', 'user_unsubscribed_message_type_history')}}"
         description: Table containing the history of message types from which a user has unsubscribed.
         meta:
           is_enabled: "{{ var('iterable__using_user_unsubscribed_message_type_history', true) }}"
