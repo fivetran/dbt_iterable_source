@@ -1,9 +1,11 @@
-# dbt_iterable_source v0.UPDATE.UPDATE
+# dbt_iterable_source v0.7.0
+## 🎉 Feature Update 🎉
+- Databricks compatibility! ([#25](https://github.com/fivetran/dbt_iterable_source/pull/25))
 
- ## Under the Hood:
+## 🚘 Under the Hood 🚘
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([#24](https://github.com/fivetran/dbt_iterable_source/pull/24))
+- Updated the pull request [templates](/.github). ([#24](https://github.com/fivetran/dbt_iterable_source/pull/24))
 
-- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
-- Updated the pull request [templates](/.github).
 # dbt_iterable_source v0.6.0
 ## 🚨 Breaking Changes 🚨
 - Added `iterable_[source_table_name]_identifier` variables to allow easier flexibility of the package to refer to source tables with different names. 

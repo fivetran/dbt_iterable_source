@@ -26,7 +26,7 @@
 To use this dbt package, you must have the following:
 
 - At least one Fivetran Iterable connector syncing data into your destination.
-- A **BigQuery**, **Snowflake**, **Redshift**, or **PostgreSQL** destination.
+- A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
 ## Step 2: Install the package
 Include the following Iterable package version in your `packages.yml` file.
 
@@ -35,7 +35,7 @@ Include the following Iterable package version in your `packages.yml` file.
 ```yaml
 packages:
   - package: fivetran/iterable_source
-    version: [">=0.6.0", "<0.7.0"]
+    version: [">=0.7.0", "<0.8.0"]
 ```
 
 ## Step 3: Define database and schema variables

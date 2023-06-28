@@ -1,7 +1,7 @@
 config-version: 2
 name: 'iterable_source_integration_tests'
 
-version: '0.6.0'
+version: '0.7.0'
 profile: 'integration_tests'
 
 vars:
@@ -35,3 +35,7 @@ seeds:
     event_extension_data:
       +column_types:
         payload: "{{ 'varchar(100)'  if target.type in ('redshift', 'postgres') else 'string'}}"
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
