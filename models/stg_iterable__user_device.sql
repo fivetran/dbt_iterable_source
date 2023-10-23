@@ -1,10 +1,10 @@
-{{ config(enabled=var('iterable__using_user_device_history', false)) }}
+{{ config(enabled=var('iterable__using_user_device', false)) }}
 
 -- todo: may want to make this ephemeral or do the window functions to select the final batch of devices here
 with base as (
 
     select * 
-    from {{ ref('stg_iterable__user_device_history_tmp') }}
+    from {{ ref('stg_iterable__user_device_tmp') }}
 
 ),
 
@@ -18,8 +18,8 @@ fields as (
         */
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_iterable__user_device_history_tmp')),
-                staging_columns=get_user_device_history_columns()
+                source_columns=adapter.get_columns_in_relation(ref('stg_iterable__user_device_tmp')),
+                staging_columns=get_user_device_columns()
             )
         }}
         

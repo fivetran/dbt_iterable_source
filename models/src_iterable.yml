@@ -266,11 +266,11 @@ sources:
           - name: updated_at
             description: Last update timestamp as epoch time in milliseconds
 
-      - name: user_device_history
-        identifier: "{{ var('iterable_user_device_history_identifier', 'user_device_history')}}"
+      - name: user
+        identifier: "{{ var('iterable_user_device_identifier', 'user_device')}}"
         description: Table capturing the history of devices associated with in-app and push notifications to a user.
         meta:
-          is_enabled: "{{ var('iterable__using_user_device_history', false) }}"
+          is_enabled: "{{ var('iterable__using_user_device', false) }}"
         columns:
           - name: application_name
             description: >

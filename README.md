@@ -51,7 +51,7 @@ vars:
 
 Your Iterable connector might not sync every table that this package expects. If your syncs exclude certain tables, it is either because you do not use that functionality in Iterable or have actively excluded some tables from your syncs. In order to enable or disable the relevant tables in the package, you will need to add the following variable(s) to your `dbt_project.yml` file.
 
-By default, all variables are assumed to be `true` (with exception of `iterable__using_user_device_history`, which is set to `false`). 
+By default, all variables are assumed to be `true` (with exception of `iterable__using_user_device`, which is set to `false`). 
 
 ```yml
 vars:
@@ -59,7 +59,7 @@ vars:
     iterable__using_user_unsubscribed_message_type_history: false    # default is true
     iterable__using_campaign_suppression_list_history: false         # default is true   
 
-    iterable__using_user_device_history: true                        # default is false
+    iterable__using_user_device: true                        # default is false
 ```
 
 ## (Optional) Step 5: Additional configurations

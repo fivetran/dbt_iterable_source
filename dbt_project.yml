@@ -23,6 +23,6 @@ vars:
     message_type: "{{ source('iterable', 'message_type') }}"
     template_history: "{{ source('iterable', 'template_history') }}"
     user_history: "{{ source('iterable', 'user_history') }}"
-    user_device_history: "{{ source('iterable', 'user_device_history') }}"
+    user_device: "{{ source('iterable', 'user_device') }}"
     user_unsubscribed_channel_history: "{{ source('iterable', 'user_unsubscribed_channel_history') }}"
     user_unsubscribed_message_type_history: "{{ source('iterable', 'user_unsubscribed_message_type_history') }}"

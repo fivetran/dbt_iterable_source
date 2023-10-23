@@ -1,4 +1,4 @@
-{% macro get_user_device_history_columns() %}
+{% macro get_user_device_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
