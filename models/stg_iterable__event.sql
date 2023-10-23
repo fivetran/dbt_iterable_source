@@ -46,7 +46,8 @@ final as (
         unsub_source,
         user_agent,
         user_agent_device,
-        _fivetran_synced
+        _fivetran_synced,
+        _fivetran_user_id
     from fields
 )
 

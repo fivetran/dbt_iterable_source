@@ -63,7 +63,8 @@ final as (
         url,
         workflow_id,
         workflow_name,
-        _fivetran_synced
+        _fivetran_synced,
+        _fivetran_user_id
     from fields
 )
 
