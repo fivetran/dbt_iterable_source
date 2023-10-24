@@ -331,15 +331,15 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - email
+            - iterable_user_id
             - updated_at
     columns:
       - name: iterable_user_id
         description: The unique identifier of the user
-      - name: email
-        description: The user's email. Previously was the unique identifier for the user records, for Iterable customers before August 2023. This has since been replaced by iterable_user_id.
         tests:
           - not_null
+      - name: email
+        description: The user's email. Previously was the unique identifier for the user records, for Iterable customers before August 2023. This has since been replaced by iterable_user_id.
       - name: user_id
         description: User defined identifier of the user. This is not a unique field
       - name: first_name
