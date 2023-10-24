@@ -316,7 +316,7 @@ models:
         description: Last update timestamp as epoch time in milliseconds
 
   - name: stg_iterable__user_device
-    description: [UPDATE] Table capturing the history of devices associated with in-app and push notifications to a user.
+    description: Table capturing the devices associated with in-app and push notifications to a user.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:

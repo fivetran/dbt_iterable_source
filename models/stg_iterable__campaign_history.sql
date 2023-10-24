@@ -42,7 +42,6 @@ final as (
         updated_by_user_id,
         template_id,
         workflow_id,
-        message_medium,
         _fivetran_synced
 
     from fields
