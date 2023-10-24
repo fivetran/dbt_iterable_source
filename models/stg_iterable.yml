@@ -273,7 +273,7 @@ models:
         description: The list type
       - name: created_at
         description: Creation timestamp as epoch time in milliseconds
-      - name: description
+      - name: list_description
         description: Information about the list
 
   - name: stg_iterable__message_type
@@ -288,7 +288,7 @@ models:
         description: User defined name of the message type
       - name: channel_id
         description: Channel that this message type belongs to
-      - name: created_at
+      - name: message_type_created_at
         description: Time when the message type was initially created
       - name: frequency_cap
         description: The maximum number of times a message of this type can be sent to a recipient within a specified time period to prevent over-messaging
@@ -296,7 +296,7 @@ models:
         description: The maximum number of messages of this type that can be sent to recipients in a minute, ensuring controlled message delivery
       - name: subscription_policy
         description: Information about the policy or rules governing how users can subscribe to or unsubscribe from this specific message type, like OptOut
-      - name: updated_at
+      - name: message_type_updated_at
         description: Time when the message type was last updated or modified
 
   - name: stg_iterable__template_history
