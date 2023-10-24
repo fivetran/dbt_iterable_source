@@ -35,6 +35,10 @@ models:
         description: Reference to the user who created the campaign
       - name: template_id
         description: Reference to the campaign template
+      - name: updated_by_user_id
+        description: ID of the user who updated this record
+      - name: message_medium
+        description: The medium that this message was sent via, for example Email or InApp
 
   - name: stg_iterable__campaign_label_history
     description: Table containing a history of labels.
@@ -129,6 +133,10 @@ models:
         description: User agent associated with the event
       - name: user_agent_device
         description: The device of the user agent
+      - name: _fivetran_id
+        description: A Fivetran-created unique identifier derived from hashing campaign_id, created_at, and event_name. 
+      - name: _fivetran_user_id
+        description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type.
   
   - name: stg_iterable__event_extension
     description: Table containing addition properties from the event table.
@@ -206,6 +214,50 @@ models:
         description: Reference to the workflow which the event originated
       - name: workflow_name
         description: Name of the workflow which the event originated
+      - name: catalog_collection_count
+        description: The count of products or items collected in a catalog associated with the event.
+      - name: catalog_lookup_count 
+        description: The count of times a catalog was looked up or queried during the event.
+      - name: city 
+        description: The city associated with the event, which could be the location of the recipient.
+      - name: clicked_url 
+        description: The URL that was clicked by the recipient in response to the marketing message.
+      - name: country 
+        description: The country associated with the event, which could be the location of the recipient.
+      - name: error_code 
+        description: The error code or message indicating any issues or errors encountered during the event.
+      - name: expires_at 
+        description: The date and time when the event or message is set to expire or become invalid.
+      - name: from_phone_number 
+        description: The phone number from which the SMS message was sent.
+      - name: in_app_body 
+        description: The content or body of an in-app message that was sent as part of the event.
+      - name: is_sms_estimation 
+        description: A boolean indicating whether the SMS message is an estimation or not.
+      - name: labels 
+        description: Any labels or tags associated with the event, which can be used for categorization or organization.
+      - name: message_context 
+        description: Additional contextual information related to the marketing message or event.
+      - name: message_status 
+        description: The status of the marketing message, such as sent, delivered, opened, etc.
+      - name: mms_send_count 
+        description: The count of multimedia messages (MMS) sent as part of the event.
+      - name: product_recommendation_count 
+        description: The count of product recommendations included in the message.
+      - name: proxy_source 
+        description: Information about the source or proxy used for sending the message.
+      - name: reason 
+        description: The reason or cause associated with a specific event or action.
+      - name: sms_send_count 
+        description: The count of SMS messages sent as part of the event.
+      - name: web_push_body 
+        description: The content or body of a web push notification sent as part of the event.
+      - name: web_push_click_action 
+        description: The action triggered when a recipient clicks a web push notification.
+      - name: web_push_icon 
+        description: The icon or image associated with the web push notification.
+      - name: web_push_message 
+        description: The message or notification sent to web users as part of the event.
 
   - name: stg_iterable__list
     description: Table containing users and the lists the users are associated with.
@@ -221,6 +273,8 @@ models:
         description: The list type
       - name: created_at
         description: Creation timestamp as epoch time in milliseconds
+      - name: description
+        description: Information about the list
 
   - name: stg_iterable__message_type
     description: Table containing unique message types.
@@ -234,6 +288,16 @@ models:
         description: User defined name of the message type
       - name: channel_id
         description: Channel that this message type belongs to
+      - name: created_at
+        description: Time when the message type was initially created
+      - name: frequency_cap
+        description: The maximum number of times a message of this type can be sent to a recipient within a specified time period to prevent over-messaging
+      - name: rate_limit_per_minute
+        description: The maximum number of messages of this type that can be sent to recipients in a minute, ensuring controlled message delivery
+      - name: subscription_policy
+        description: Information about the policy or rules governing how users can subscribe to or unsubscribe from this specific message type, like OptOut
+      - name: updated_at
+        description: Time when the message type was last updated or modified
 
   - name: stg_iterable__template_history
     description: Table containing unique templates used across campaigns.
@@ -270,8 +334,10 @@ models:
             - email
             - updated_at
     columns:
+      - name: iterable_user_id
+        description: The unique identifier of the user
       - name: email
-        description: Unique identifier of the user as well as their email
+        description: The user's email. Previously was the unique identifier for the user records, for Iterable customers before August 2023. This has since been replaced by iterable_user_id.
         tests:
           - not_null
       - name: user_id
