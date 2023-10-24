@@ -330,7 +330,7 @@ sources:
           - name: updated_at
             description: Last update timestamp as epoch time in milliseconds
 
-      - name: user
+      - name: user_device
         identifier: "{{ var('iterable_user_device_identifier', 'user_device')}}"
         description: Table capturing the history of devices associated with in-app and push notifications to a user.
         meta:
