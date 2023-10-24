@@ -6,6 +6,7 @@
     {"name": "created_at", "datatype": dbt.type_timestamp()},
     {"name": "id", "datatype": dbt.type_int()},
     {"name": "list_type", "datatype": dbt.type_string()},
+    {"name": "description", "datatype": dbt.type_string()},
     {"name": "name", "datatype": dbt.type_string()}
 ] %}
 

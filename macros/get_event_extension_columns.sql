@@ -5,6 +5,8 @@
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "app_already_running", "datatype": "boolean"},
     {"name": "badge", "datatype": dbt.type_string()},
+    {"name": "catalog_collection_count", "datatype": dbt.type_numeric()},
+    {"name": "catalog_lookup_count", "datatype": dbt.type_numeric()},
     {"name": "canonical_url_id", "datatype": dbt.type_string()},
     {"name": "content_available", "datatype": "boolean"},
     {"name": "content_id", "datatype": dbt.type_numeric()},
@@ -34,7 +36,29 @@
     {"name": "to_phone_number", "datatype": dbt.type_string()},
     {"name": "url", "datatype": dbt.type_string()},
     {"name": "workflow_id", "datatype": dbt.type_string()},
-    {"name": "workflow_name", "datatype": dbt.type_string()}
+    {"name": "workflow_name", "datatype": dbt.type_string()},
+    {"name": "city", "datatype": dbt.type_string()},
+    {"name": "clicked_url", "datatype": dbt.type_string()},
+    {"name": "country", "datatype": dbt.type_string()},
+    {"name": "error_code", "datatype": dbt.type_string()},
+    {"name": "expires_at", "datatype": dbt.type_timestamp()},
+    {"name": "from_phone_number", "datatype": dbt.type_string()},
+    {"name": "in_app_body", "datatype": dbt.type_string()},
+    {"name": "is_sms_estimation", "datatype": "boolean"},
+    {"name": "labels", "datatype": dbt.type_string()},
+    {"name": "message_context", "datatype": dbt.type_string()},
+    {"name": "message_status", "datatype": dbt.type_string()},
+    {"name": "mms_send_count", "datatype": dbt.type_numeric()},
+    {"name": "product_recommendation_count", "datatype": dbt.type_string()},
+    {"name": "proxy_source", "datatype": dbt.type_string()},
+    {"name": "reason", "datatype": dbt.type_string()},
+    {"name": "sms_send_count", "datatype": dbt.type_numeric()},
+    {"name": "web_push_body", "datatype": dbt.type_string()},
+    {"name": "web_push_click_action", "datatype": dbt.type_string()},
+    {"name": "web_push_icon", "datatype": dbt.type_string()},
+    {"name": "web_push_message", "datatype": dbt.type_string()}
+    {"name": "_fivetran_synced", "datatype": dbt.type_string()},
+    {"name": "_fivetran_user_id", "datatype": dbt.type_string()}
 ] %}
 
 {{ return(columns) }}
