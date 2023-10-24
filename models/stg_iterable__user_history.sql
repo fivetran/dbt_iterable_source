@@ -37,6 +37,7 @@ final as (
         signup_date,
         signup_source,
         updated_at,
+        iterable_user_id,
         _fivetran_synced
     from fields
 )

@@ -32,6 +32,11 @@ final as (
         id as message_type_id,
         name as message_type_name,
         channel_id,
+        created_at,
+        frequency_cap,
+        rate_limit_per_minute,
+        subscription_policy,
+        updated_at,
         _fivetran_synced
     from fields
 )
