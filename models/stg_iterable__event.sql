@@ -48,6 +48,9 @@ final as (
         user_agent_device,
         _fivetran_synced,
         _fivetran_user_id
+
+        {{ fivetran_utils.fill_pass_through_columns('iterable_event_pass_through_columns') }}
+
     from fields
 )
 
