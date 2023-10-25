@@ -86,7 +86,7 @@ final as (
         web_push_icon,
         web_push_message,
         _fivetran_synced,
-        _fivetran_user_id
+        cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id
     from fields
 )
 
