@@ -1,3 +1,10 @@
+# dbt_iterable_source v0.8.0
+## API Updates
+[PR #28](https://github.com/fivetran/dbt_iterable_source/pull/28) includes updates in response to the [Aug 2023 updates](https://fivetran.com/docs/applications/iterable/changelog#august2023) to the Iterable connector.
+
+- Introduces the following new fields:
+- 
+
 # dbt_iterable_source v0.7.0
 ## 🎉 Feature Update 🎉
 - Databricks compatibility! ([#25](https://github.com/fivetran/dbt_iterable_source/pull/25))
