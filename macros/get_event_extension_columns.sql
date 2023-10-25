@@ -56,7 +56,7 @@
     {"name": "web_push_body", "datatype": dbt.type_string()},
     {"name": "web_push_click_action", "datatype": dbt.type_string()},
     {"name": "web_push_icon", "datatype": dbt.type_string()},
-    {"name": "web_push_message", "datatype": dbt.type_string()}
+    {"name": "web_push_message", "datatype": dbt.type_string()},
     {"name": "_fivetran_synced", "datatype": dbt.type_string()},
     {"name": "_fivetran_user_id", "datatype": dbt.type_string()}
 ] %}
