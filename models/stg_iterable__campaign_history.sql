@@ -37,6 +37,7 @@ final as (
         start_at,
         ended_at,
         created_at,
+        message_medium,
         cast(recurring_campaign_id as {{ dbt.type_string() }}) as recurring_campaign_id,
         created_by_user_id,
         updated_by_user_id,

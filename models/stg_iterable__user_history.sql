@@ -38,6 +38,7 @@ final as (
         signup_source,
         updated_at,
         iterable_user_id,
+        _fivetran_id as _fivetran_user_id,
         _fivetran_synced
 
         {{ fivetran_utils.fill_pass_through_columns('iterable_user_pass_through_columns') }}

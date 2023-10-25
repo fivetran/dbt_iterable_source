@@ -36,6 +36,7 @@ final as (
         platform_endpoint,
         endpoint_enabled as is_endpoint_enabled,
         updated_at,
+        _fivetran_id as _fivetran_user_id,
         _fivetran_synced
 
     from fields

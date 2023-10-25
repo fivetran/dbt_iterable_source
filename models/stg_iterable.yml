@@ -360,6 +360,8 @@ models:
         description: Last update timestamp as epoch time in milliseconds
       - name: phone_number 
         description: Phone number associated with the user
+      - name: _fivetran_user_id
+        description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type.
   
   - name: stg_iterable__user_unsubscribed_channel_history
     description: Table containing the history of channels from which a user has unsubscribed.
@@ -390,8 +392,7 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - email
-            - updated_at
+            - fivetran_id
             - index
     columns:
       - name: application_name
@@ -408,5 +409,5 @@ models:
         description: The platform's endpoint. 
       - name: is_endpoint_enabled
         description: Boolean that is true if the user has not disabled Push notifications and their endpoint remains enabled.
-      - name: updated_at
-        description: Timestamp of when this device was updated last.
+      - name: _fivetran_user_id
+        description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type.
