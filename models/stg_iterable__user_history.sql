@@ -28,6 +28,8 @@ fields as (
 final as (
     
     select 
+        _fivetran_id as _fivetran_user_id,
+        updated_at,
         lower(email) as email,
         user_id,
         first_name,
@@ -36,9 +38,7 @@ final as (
         phone_number,
         signup_date,
         signup_source,
-        updated_at,
         iterable_user_id,
-        _fivetran_id as _fivetran_user_id,
         _fivetran_synced
 
         {{ fivetran_utils.fill_pass_through_columns('iterable_user_pass_through_columns') }}
