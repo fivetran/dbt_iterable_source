@@ -26,7 +26,7 @@ fields as (
 final as (
     
     select 
-        channel_id,
+        cast(channel_id as {{ dbt.type_string() }} ) as channel_id,
         email,
         updated_at,
         _fivetran_synced

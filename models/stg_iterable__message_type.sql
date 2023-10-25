@@ -28,10 +28,10 @@ fields as (
 
 final as (
     
-    select 
-        id as message_type_id,
+    select
+        cast(id as {{ dbt.type_string() }} ) as message_type_id,
         name as message_type_name,
-        channel_id,
+        cast(channel_id as {{ dbt.type_string() }} ) as channel_id,
         created_at as message_type_created_at,
         frequency_cap,
         rate_limit_per_minute,

@@ -27,8 +27,8 @@ fields as (
 
 final as (
     
-    select 
-        id as campaign_id,
+    select
+        cast(id as {{ dbt.type_string() }}) as campaign_id,
         updated_at,
         name as campaign_name,
         campaign_state,
@@ -37,10 +37,10 @@ final as (
         start_at,
         ended_at,
         created_at,
-        recurring_campaign_id,
+        cast(recurring_campaign_id as {{ dbt.type_string() }}) as recurring_campaign_id,
         created_by_user_id,
         updated_by_user_id,
-        template_id,
+        cast(template_id as {{ dbt.type_string() }}) as template_id,
         workflow_id,
         _fivetran_synced
 

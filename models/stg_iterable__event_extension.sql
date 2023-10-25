@@ -30,7 +30,7 @@ fields as (
 
 final as (
     select
-        _fivetran_id as event_id,
+        cast(_fivetran_id as {{ dbt.type_string() }} ) as event_id,
         app_already_running as is_app_already_running,
         badge,
         catalog_collection_count,
@@ -41,7 +41,7 @@ final as (
         deeplink_android,
         deeplink_ios,
         device,
-        email_id,
+        cast(email_id as {{ dbt.type_string() }}) as email_id,
         email_subject,
         experiment_id,
         from_phone_number_id,

@@ -22,13 +22,13 @@ fields as (
 final as (
     
     select 
-        id as template_id,
+        cast(id as {{ dbt.type_string() }} ) as template_id,
         name as template_name,
         template_type,
         created_at,
-        client_template_id,
+        cast(client_template_id as {{ dbt.type_string() }} ) as client_template_id,
         creator_user_id,
-        message_type_id,
+        cast(message_type_id as {{ dbt.type_string() }} ) as message_type_id,
         updated_at,
         _fivetran_synced
     from fields

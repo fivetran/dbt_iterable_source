@@ -30,7 +30,7 @@ final as (
     
     select 
         email,
-        message_type_id,
+        cast(message_type_id as {{ dbt.type_string() }} ) as message_type_id,
         updated_at,
         _fivetran_synced
     from fields

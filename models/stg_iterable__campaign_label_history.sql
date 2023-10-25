@@ -29,7 +29,7 @@ fields as (
 final as (
     
     select 
-        campaign_id,
+        cast(campaign_id as {{ dbt.type_string() }}) as campaign_id,
         label,
         updated_at,
         _fivetran_synced
