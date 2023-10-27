@@ -1,4 +1,4 @@
-{% macro get_user_unsubscribed_channel_history_columns() %}
+{% macro get_user_unsubscribed_channel_columns() %}
 
 {% if does_table_exist('user_unsubscribed_channel') %}
 

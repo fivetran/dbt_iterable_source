@@ -1,4 +1,4 @@
-{% macro get_user_unsubscribed_message_type_history_columns() %}
+{% macro get_user_unsubscribed_message_type_columns() %}
 
 {% if does_table_exist('user_unsubscribed_message_type') %}
 
