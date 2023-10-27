@@ -1,6 +1,6 @@
-{{ config(enabled=var('iterable__using_user_unsubscribed_message_type_history', True)) }}
+{{ config(enabled=var('iterable__using_user_unsubscribed_message_type', True)) }}
 
-{% if var('iterable__using_user_unsubscribed_message_type_history', does_table_exist('user_unsubscribed_message_type_history')) %}
+{% if var('iterable__using_user_unsubscribed_message_type', does_table_exist('user_unsubscribed_message_type_history')) %}
 
 select * 
 from {{ var('user_unsubscribed_message_type_history') }}

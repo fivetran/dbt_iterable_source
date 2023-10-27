@@ -1,4 +1,4 @@
-{{ config(enabled=var('iterable__using_user_unsubscribed_message_type_history', True)) }}
+{{ config(enabled=var('iterable__using_user_unsubscribed_message_type', True)) }}
 
 with base as (
 
@@ -30,7 +30,7 @@ final as (
 
     select 
 
-        {% if var('iterable__using_user_unsubscribed_message_type_history', does_table_exist('user_unsubscribed_message_type_history')) %}
+        {% if var('iterable__using_user_unsubscribed_message_type', does_table_exist('user_unsubscribed_message_type_history')) %}
 
         email,
         message_type_id,

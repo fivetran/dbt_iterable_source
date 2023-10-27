@@ -345,7 +345,7 @@ sources:
         identifier: "{{ var('iterable_user_unsubscribed_message_type_identifier', 'user_unsubscribed_message_type')}}"
         description: Table containing the message types from which a user has unsubscribed.
         meta:
-          is_enabled: "{{ var('iterable__using_user_unsubscribed_message_type_history', true) }}"
+          is_enabled: "{{ var('iterable__using_user_unsubscribed_message_type', true) }}"
         columns:
           - name: _fivetran_id
             description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type.
@@ -357,7 +357,7 @@ sources:
         identifier: "{{ var('iterable_user_unsubscribed_message_type_history_identifier', 'user_unsubscribed_message_type_history')}}"
         description: Table containing the history of message types from which a user has unsubscribed.
         meta:
-          is_enabled: "{{ var('iterable__using_user_unsubscribed_message_type_history', true) }}"
+          is_enabled: "{{ var('iterable__using_user_unsubscribed_message_type', true) }}"
         columns:
           - name: message_type_id
             description: Reference to the message type from which the user unsubscribed
