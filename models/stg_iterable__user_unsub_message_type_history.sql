@@ -27,11 +27,24 @@ fields as (
 ),
 
 final as (
-    
+
     select 
+
+        {% if var('iterable__using_user_unsubscribed_message_type_history', does_table_exist('user_unsubscribed_message_type_history')) %}
+
+        email,
+        message_type_id,
+        updated_at,
+
+        {% else %}
+
         _fivetran_id as _fivetran_user_id,
         cast(message_type_id as {{ dbt.type_string() }} ) as message_type_id,
+
+        {% endif %}
+
         _fivetran_synced
+
     from fields
 )
 
