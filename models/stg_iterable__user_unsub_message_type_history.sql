@@ -30,16 +30,16 @@ final as (
 
     select 
 
-        {% if var('iterable__using_user_unsubscribed_message_type', does_table_exist('user_unsubscribed_message_type_history')) %}
+        {% if does_table_exist('user_unsubscribed_message_type') %}
+
+        _fivetran_id as _fivetran_user_id,
+        cast(message_type_id as {{ dbt.type_string() }} ) as message_type_id,
+
+        {% else %}
 
         email,
         message_type_id,
         updated_at,
-
-        {% else %}
-
-        _fivetran_id as _fivetran_user_id,
-        cast(message_type_id as {{ dbt.type_string() }} ) as message_type_id,
 
         {% endif %}
 

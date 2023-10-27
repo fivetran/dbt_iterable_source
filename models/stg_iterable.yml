@@ -376,8 +376,14 @@ models:
       - name: _fivetran_user_id
         description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type.
 
-- name: stg_iterable__user_unsub_message_type_history
+  - name: stg_iterable__user_unsub_message_type_history
     description: Table containing the history of message types from which a user has unsubscribed. "Unsubscribed" is shortened to "unsub" for postgres compatibility.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - message_type_id
+            - email
+            - updated_at
     columns:
       - name: message_type_id
         description: Reference to the message type from which the user unsubscribed

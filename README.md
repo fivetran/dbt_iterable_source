@@ -56,10 +56,9 @@ By default, all variables are assumed to be `true` (with exception of `iterable_
 ```yml
 vars:
     iterable__using_campaign_label_history: false                    # default is true
-    iterable__using_user_unsubscribed_message_type: false    # default is true
+    iterable__using_user_unsubscribed_message_type: false           # default is true
     iterable__using_campaign_suppression_list_history: false         # default is true   
 
-    iterable__using_user_device: true                        # default is false
 ```
 
 ## (Optional) Step 5: Additional configurations

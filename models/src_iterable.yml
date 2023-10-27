@@ -139,7 +139,7 @@ sources:
         identifier: "{{ var('iterable_event_extension_identifier', 'event_extension')}}"
         description: Table containing additional properties from the event table.
         columns:
-          - name: 
+          - name: _fivetran_id
             description: A Fivetran-created unique identifier derived from hashing campaign_id, created_at, and event_name. 
           - name: app_already_running
             description: Boolean indicating if the app is currently running or not
