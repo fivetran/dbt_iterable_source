@@ -34,12 +34,15 @@ final as (
 
         _fivetran_id as _fivetran_user_id,
         cast(message_type_id as {{ dbt.type_string() }} ) as message_type_id,
+        {{ dbt_utils.generate_surrogate_key(['_fivetran_id', 'message_type_id']) }} as unsub_message_type_unique_key,
+
 
         {% else %}
 
         email,
         message_type_id,
         updated_at,
+        {{ dbt_utils.generate_surrogate_key(['email', 'message_type_id','updated_at']) }} as unsub_message_type_unique_key,
 
         {% endif %}
 
