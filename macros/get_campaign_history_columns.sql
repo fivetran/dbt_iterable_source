@@ -15,7 +15,8 @@
     {"name": "template_id", "datatype": dbt.type_numeric()},
     {"name": "type", "datatype": dbt.type_string()},
     {"name": "updated_at", "datatype": dbt.type_timestamp()},
-    {"name": "workflow_id", "datatype": dbt.type_numeric()}
+    {"name": "workflow_id", "datatype": dbt.type_numeric()},
+    {"name": "message_medium", "datatype": dbt.type_string()}
 ] %}
 
 {{ return(columns) }}
