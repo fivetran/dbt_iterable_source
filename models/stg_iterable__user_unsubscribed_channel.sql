@@ -39,6 +39,7 @@ final as (
         email,
         updated_at,
         {{ dbt_utils.generate_surrogate_key(['email', 'channel_id','updated_at']) }} as unsub_channel_unique_key,
+        rank() over(partition by email order by updated_at desc) as latest_batch_index,
 
         {% endif %}
 
@@ -47,5 +48,15 @@ final as (
     from fields
 )
 
-select * 
+{% if does_table_exist('user_unsubscribed_channel') %}
+
+select *
 from final
+
+{% else %}
+
+select *
+from final 
+where latest_batch_index = 1
+
+{% endif %}

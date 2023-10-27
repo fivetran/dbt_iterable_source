@@ -51,4 +51,16 @@ final as (
     from fields
 )
 
-select * from final
+
+{% if does_table_exist('user_unsubscribed_message_type') %}
+
+select *
+from final
+
+{% else %}
+
+select *
+from final 
+where latest_batch_index = 1
+
+{% endif %}
