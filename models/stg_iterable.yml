@@ -391,27 +391,3 @@ models:
       - name: _fivetran_user_id
         description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type.
 
-  - name: stg_iterable__user_device
-    description: Table capturing the devices associated with in-app and push notifications to a user.
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - fivetran_id
-            - index
-    columns:
-      - name: application_name
-        description: >
-          The Iterable push integration to associate with the device token. Usually matches the package name (or bundle ID) 
-          of the relevant mobile app. 
-      - name: email
-        description: User email associated with the device. 
-      - name: index
-        description: Index representing the order in which devices were added to a user. 
-      - name: platform
-        description: The device platform. Can be APNS, APNS_SANDBOX or GCM
-      - name: platform_endpoint
-        description: The platform's endpoint. 
-      - name: is_endpoint_enabled
-        description: Boolean that is true if the user has not disabled Push notifications and their endpoint remains enabled.
-      - name: _fivetran_user_id
-        description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type.
