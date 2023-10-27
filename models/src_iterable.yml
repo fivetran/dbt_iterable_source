@@ -330,16 +330,14 @@ sources:
           - name: updated_at
             description: Last update timestamp as epoch time in milliseconds
 
-      - name: user_unsubscribed_channel_history
-        identifier: "{{ var('iterable_user_unsubscribed_channel_history_identifier', 'user_unsubscribed_channel_history')}}"
-        description: Table containing the history of channels from which a user has unsubscribed.
+      - name: user_unsubscribed_channel
+        identifier: "{{ var('iterable_user_unsubscribed_channel_identifier', 'user_unsubscribed_channel')}}"
+        description: Table containing the channels from which a user has unsubscribed.
         columns:
+          - name: _fivetran_id
+            description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type.
           - name: channel_id
             description: Reference to the channel from which the user unsubscribed
-          - name: email
-            description: Unique identifier of the user
-          - name: updated_at
-            description: Last update timestamp as epoch time in milliseconds
 
       - name: user_unsubscribed_message_type
         identifier: "{{ var('iterable_user_unsubscribed_message_type_identifier', 'user_unsubscribed_message_type')}}"
@@ -352,6 +350,17 @@ sources:
           - name: message_type_id
             description: Reference to the message type from which the user unsubscribed
 
+
+      - name: user_unsubscribed_channel_history
+        identifier: "{{ var('iterable_user_unsubscribed_channel_history_identifier', 'user_unsubscribed_channel_history')}}"
+        description: Table containing the history of channels from which a user has unsubscribed.
+        columns:
+          - name: channel_id
+            description: Reference to the channel from which the user unsubscribed
+          - name: email
+            description: Unique identifier of the user
+          - name: updated_at
+            description: Last update timestamp as epoch time in milliseconds
 
       - name: user_unsubscribed_message_type_history
         identifier: "{{ var('iterable_user_unsubscribed_message_type_history_identifier', 'user_unsubscribed_message_type_history')}}"

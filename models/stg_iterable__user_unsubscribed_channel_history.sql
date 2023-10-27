@@ -24,11 +24,26 @@ fields as (
 ),
 
 final as (
-    
+
     select
+
+        {% if does_table_exist('user_unsubscribed_channel') %}
+
         _fivetran_id as _fivetran_user_id,
         cast(channel_id as {{ dbt.type_string() }} ) as channel_id,
+        {{ dbt_utils.generate_surrogate_key(['_fivetran_id', 'channel_id']) }} as unsub_channel_unique_key,
+
+        {% else %}
+
+        channel_id,
+        email,
+        updated_at,
+        {{ dbt_utils.generate_surrogate_key(['email', 'channel_id','updated_at']) }} as unsub_channel_unique_key,
+
+        {% endif %}
+
         _fivetran_synced
+
     from fields
 )
 

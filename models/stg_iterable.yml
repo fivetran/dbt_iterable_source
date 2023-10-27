@@ -363,18 +363,21 @@ models:
   
   - name: stg_iterable__user_unsubscribed_channel
     description: Table containing the history of channels from which a user has unsubscribed.
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - _fivetran_user_id
-            - channel_id
     columns:
       - name: channel_id
         description: Reference to the channel from which the user unsubscribed
         tests:
           - not_null
+      - name: unsub_channel_unique_key
+        description: A surrogate key providing a unique key for each record. If using user_unsubscribed_channel_history, it uses 'email', 'channel_id', and 'updated_at'. If not using the history table, it uses '_fivetran_user_id' and 'channel_id'.
+        tests:
+          - unique
       - name: _fivetran_user_id
         description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type.
+      - name: email
+        description: Unique identifier of the user
+      - name: updated_at
+        description: Last update timestamp as epoch time in milliseconds        
 
   - name: stg_iterable__user_unsub_message_type
     description: Table containing the message types from which a user has unsubscribed. "Unsubscribed" is shortened to "unsub" for postgres compatibility.
