@@ -61,7 +61,13 @@ vars:
 
 ```
 
-## (Optional) Step 5: Additional configurations
+## Step 5: Unsubscribe tables are no longer history tables
+
+For connectors created past August 2023, the `user_unsubscribed_channel_history` and `user_unsubscribed_message_type_history` Iterable objects will no longer be history tables as part of schema changes following Iterable's API updates. The fields have also changed. If you are using the old schema, you may update to the new schema. However, if you wish to remain on the old schema, we have checks in place that will automatically persist the respective fields depending on what exists in your schema.
+
+*Please be sure you are syncing them as either both history or non-history.*
+
+## (Optional) Step 6: Additional configurations
 <details><summary>Expand for details</summary>
 <br>
 
@@ -112,13 +118,9 @@ vars:
     iterable_campaign_suppression_list_history_identifier: "campaign_supression_list_history"
 ```
 
-### Unsubscribe tables are no longer history tables
-
-Past August 2023, the `user_unsubscribed_channel_history` and `user_unsubscribed_message_type_history` Iterable objects will no longer be history tables. In addition, the columns have changed. We have checks in place that will automatically persist the respective columns depending on what exists in your schema.
-
 </details>
 
-## (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 7: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand for details</summary>
 <br>
     
