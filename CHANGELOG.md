@@ -19,20 +19,6 @@ For customers using the new August 2023 schema, please note the following change
 - Past August 2023, the `user_unsubscribed_channel_history` and `user_unsubscribed_message_type_history` Iterable objects will no longer be history tables. In addition, the columns have changed. We have checks in place that will automatically persist the respective columns depending on what exists in your schema.
   - In addition, we have added generated keys to these 2 tables that we will use for uniqueness tests. The unique key generated depends on whether you are using the history version of the 2 tables. For more information, refer to our [documentation](https://github.com/fivetran/dbt_iterable_source/blob/main/models/stg_iterable.yml).
 
-
-| **Previous Name**                          | **New Name**                                                                                                                                                                                                                             |
-|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| created_at | balance_transaction_created_at
-| available_on | balance_transaction_available_on
-| currency | balance_transaction_currency
-| amount | balance_transaction_amount
-| fee | balance_transaction_fee
-| net | balance_transaction_net
-| type | balance_transaction_type
-| source | balance_transaction_source_id
-| reporting_category | balance_transaction_reporting_category
-| description | balance_transaction_description
-
 # dbt_iterable_source v0.7.0
 ## 🎉 Feature Update 🎉
 - Databricks compatibility! ([#25](https://github.com/fivetran/dbt_iterable_source/pull/25))
