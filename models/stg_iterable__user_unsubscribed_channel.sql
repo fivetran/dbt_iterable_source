@@ -35,7 +35,7 @@ final as (
 
         {% else %}
 
-        channel_id,
+        cast(channel_id as {{ dbt.type_string() }} ) as channel_id,
         email,
         updated_at,
         rank() over(partition by email order by updated_at desc) as latest_batch_index,

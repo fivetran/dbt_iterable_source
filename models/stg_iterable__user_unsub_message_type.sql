@@ -40,7 +40,7 @@ final as (
         {% else %}
 
         email,
-        message_type_id,
+        cast(message_type_id as {{ dbt.type_string() }} ) as message_type_id,
         updated_at,
         rank() over(partition by email order by updated_at desc) as latest_batch_index,
         {{ dbt_utils.generate_surrogate_key(['email', 'message_type_id','updated_at']) }} as unsub_message_type_unique_key,
