@@ -1,6 +1,7 @@
 {% macro get_user_history_columns() %}
 
 {% set columns = [
+    {"name": "_fivetran_id", "datatype": dbt.type_string()},
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "email", "datatype": dbt.type_string()},
     {"name": "email_list_ids", "datatype": dbt.type_string()},

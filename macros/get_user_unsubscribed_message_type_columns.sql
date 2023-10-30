@@ -3,6 +3,7 @@
 {% if does_table_exist('user_unsubscribed_message_type') %}
 
 {% set columns = [
+    {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "_fivetran_id", "datatype": dbt.type_string()},
     {"name": "message_type_id", "datatype": dbt.type_string()}
 ] %}
