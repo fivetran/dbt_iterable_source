@@ -86,8 +86,7 @@ final as (
         web_push_icon,
         web_push_message,
         _fivetran_synced,
-        cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id,
-        coalesce(_fivetran_user_id, email) as unique_user_key
+        cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id
     from fields
 )
 
