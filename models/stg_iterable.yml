@@ -333,17 +333,17 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - _fivetran_user_id
+            - unique_user_key
             - updated_at
     columns:
-      - name: iterable_user_id
-        description: The unique identifier of the user
+      - name: unique_user_key
+        description: The unique identifier of the user. With the new schema (Aug 2023), it is the _fivetran_user_id. This is a hash of user_id and/or email, depending on project type. If using the old schema, it is email. 
         tests:
           - not_null
       - name: email
-        description: The user's email. Previously was the unique identifier for the user records, for Iterable customers before August 2023. This has since been replaced by iterable_user_id.
+        description: The user's email. User identifier, for email-based projects. Previously was the unique identifier for user records, for Iterable customers before August 2023. 
       - name: user_id
-        description: User defined identifier of the user. This is not a unique field
+        description:  User identifier, for userID-based projects,
       - name: first_name
         description: First name of the user
       - name: last_name
@@ -358,6 +358,8 @@ models:
         description: Last update timestamp as epoch time in milliseconds
       - name: phone_number 
         description: Phone number associated with the user
+      - name: iterable_user_id
+        description: Another user identifier, for userID-based projects
       - name: _fivetran_user_id
         description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type.
   

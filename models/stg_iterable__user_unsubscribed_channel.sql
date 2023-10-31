@@ -30,6 +30,7 @@ final as (
         {% if does_table_exist('user_unsubscribed_channel') %}
 
         _fivetran_id as _fivetran_user_id,
+        _fivetran_id as unique_user_key,
         cast(channel_id as {{ dbt.type_string() }} ) as channel_id,
         {{ dbt_utils.generate_surrogate_key(['_fivetran_id', 'channel_id']) }} as unsub_channel_unique_key,
 
@@ -37,6 +38,7 @@ final as (
 
         cast(channel_id as {{ dbt.type_string() }} ) as channel_id,
         email,
+        email as unique_user_key,
         updated_at,
         rank() over(partition by email order by updated_at desc) as latest_batch_index,
         {{ dbt_utils.generate_surrogate_key(['email', 'channel_id','updated_at']) }} as unsub_channel_unique_key,

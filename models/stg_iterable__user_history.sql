@@ -29,8 +29,9 @@ final as (
     
     select 
         _fivetran_id as _fivetran_user_id,
-        updated_at,
+        coalesce(_fivetran_id, email) as unique_user_key,
         lower(email) as email,
+        updated_at,
         user_id,
         first_name,
         last_name,
