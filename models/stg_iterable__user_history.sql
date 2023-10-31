@@ -48,5 +48,5 @@ final as (
 
 select 
     *,
-    coalesce(_fivetran_id, email) as unique_user_key
+    coalesce(_fivetran_user_id, email) as unique_user_key
 from final
