@@ -47,13 +47,14 @@ final as (
         user_agent,
         user_agent_device,
         _fivetran_synced,
-        cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id,
-        coalesce(_fivetran_user_id, email) as unique_user_key
+        cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id
 
         {{ fivetran_utils.fill_pass_through_columns('iterable_event_pass_through_columns') }}
 
     from fields
 )
 
-select * 
+select 
+    *,
+    coalesce(_fivetran_user_id, email) as unique_user_key
 from final

@@ -28,8 +28,7 @@ fields as (
 final as (
     
     select 
-        _fivetran_id as _fivetran_user_id,
-        coalesce(_fivetran_id, email) as unique_user_key,
+        cast(_fivetran_id as {{ dbt.type_string() }} ) as _fivetran_user_id,
         lower(email) as email,
         updated_at,
         user_id,
@@ -47,5 +46,7 @@ final as (
     from fields
 )
 
-select * 
+select 
+    *,
+    coalesce(_fivetran_id, email) as unique_user_key
 from final

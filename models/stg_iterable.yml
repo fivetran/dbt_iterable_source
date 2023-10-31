@@ -137,6 +137,8 @@ models:
         description: The device of the user agent
       - name: _fivetran_user_id
         description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type.
+      - name: unique_user_key
+        description: The unique identifier of the user. With the new schema (Aug 2023), it is the _fivetran_user_id. This is a hash of user_id and/or email, depending on project type. If using the old schema, it is email.
   
   - name: stg_iterable__event_extension
     description: Table containing addition properties from the event table.
@@ -380,6 +382,8 @@ models:
         description: Unique identifier of the user. Exists if using the history version of the table.
       - name: updated_at
         description: Last update timestamp as epoch time in milliseconds. Exists if using the history version of the table.        
+      - name: unique_user_key
+        description: The unique identifier of the user. With the new schema (Aug 2023), it is the _fivetran_user_id. This is a hash of user_id and/or email, depending on project type. If using the old schema, it is email.
 
   - name: stg_iterable__user_unsub_message_type
     description: Table containing the message types from which a user has unsubscribed. "Unsubscribed" is shortened to "unsub" for postgres compatibility.
@@ -398,3 +402,5 @@ models:
         description: Unique identifier of the user. Exists if using the history version of the table.
       - name: updated_at
         description: Last update timestamp as epoch time in milliseconds. Exists if using the history version of the table.
+      - name: unique_user_key
+        description: The unique identifier of the user. With the new schema (Aug 2023), it is the _fivetran_user_id. This is a hash of user_id and/or email, depending on project type. If using the old schema, it is email.
