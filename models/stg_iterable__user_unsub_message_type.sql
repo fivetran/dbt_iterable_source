@@ -35,7 +35,7 @@ final as (
         cast(message_type_id as {{ dbt.type_string() }} ) as message_type_id,
         {{ dbt_utils.generate_surrogate_key(['_fivetran_id', 'email', 'message_type_id','updated_at']) }} as unsub_message_type_unique_key,
         
-        {% if does_table_exist('user_unsubscribed_channel') == false %}
+        {% if does_table_exist('user_unsubscribed_message_type') == false %}
         rank() over(partition by email order by updated_at desc) as latest_batch_index,
         {% else %}
         1 as latest_batch_index,
