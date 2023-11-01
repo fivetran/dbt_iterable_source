@@ -56,9 +56,3 @@ final as (
 
 select *
 from final 
-
-{% if does_table_exist('user_unsubscribed_message_type') == false %}
-
-where latest_batch_index = 1
-
-{% endif %}

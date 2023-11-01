@@ -50,8 +50,8 @@ sources:
       - name: campaign_label_history
         identifier: "{{ var('iterable_campaign_label_history_identifier', 'campaign_label_history')}}"
         description: Table containing a history of labels.
-        meta:
-          is_enabled: "{{ var('iterable__using_campaign_label_history', true) }}"
+        config:
+          enabled: "{{ var('iterable__using_campaign_label_history', true) }}"
         columns:
           - name: campaign_id
             description: Reference to the campaign associated with the label
@@ -342,8 +342,8 @@ sources:
       - name: user_unsubscribed_message_type
         identifier: "{{ var('iterable_user_unsubscribed_message_type_identifier', 'user_unsubscribed_message_type')}}"
         description: Table containing the message types from which a user has unsubscribed.
-        meta:
-          is_enabled: "{{ var('iterable__using_user_unsubscribed_message_type', true) }}"
+        config:
+          enabled: "{{ var('iterable__using_user_unsubscribed_message_type', true) }}"
         columns:
           - name: _fivetran_id
             description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type.
@@ -365,8 +365,8 @@ sources:
       - name: user_unsubscribed_message_type_history
         identifier: "{{ var('iterable_user_unsubscribed_message_type_history_identifier', 'user_unsubscribed_message_type_history')}}"
         description: Table containing the history of message types from which a user has unsubscribed.
-        meta:
-          is_enabled: "{{ var('iterable__using_user_unsubscribed_message_type', true) }}"
+        config:
+          enabled: "{{ var('iterable__using_user_unsubscribed_message_type', true) }}"
         columns:
           - name: message_type_id
             description: Reference to the message type from which the user unsubscribed
