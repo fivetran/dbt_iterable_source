@@ -27,6 +27,13 @@ To use this dbt package, you must have the following:
 
 - At least one Fivetran Iterable connector syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
+
+#### Unsubscribe tables are no longer history tables
+
+For connectors created past August 2023, as part of schema changes following Iterable's API updates, the `user_unsubscribed_channel_history` and `user_unsubscribed_message_type_history` Iterable objects will no longer be history tables. The fields have also changed. If you are using the older connector, you will not be affected and they will still be history tables. We have checks in place that will automatically persist the respective fields depending on what exists in your schema.
+
+*Please be sure you are syncing them as either both history or non-history.*
+
 ## Step 2: Install the package
 Include the following Iterable package version in your `packages.yml` file.
 
@@ -61,11 +68,6 @@ vars:
 
 ```
 
-## Step 5: Unsubscribe tables are no longer history tables
-
-For connectors created past August 2023, the `user_unsubscribed_channel_history` and `user_unsubscribed_message_type_history` Iterable objects will no longer be history tables as part of schema changes following Iterable's API updates. The fields have also changed. If you are using the old schema, you may update to the new schema. However, if you wish to remain on the old schema, we have checks in place that will automatically persist the respective fields depending on what exists in your schema.
-
-*Please be sure you are syncing them as either both history or non-history.*
 
 ## (Optional) Step 6: Additional configurations
 <details><summary>Expand for details</summary>
