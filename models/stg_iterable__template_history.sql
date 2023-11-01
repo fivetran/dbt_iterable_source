@@ -27,7 +27,7 @@ final as (
         template_type,
         created_at,
         cast(client_template_id as {{ dbt.type_string() }} ) as client_template_id,
-        creator_user_id,
+        cast(creator_user_id as {{ dbt.type_string() }} ) as creator_user_id,
         cast(message_type_id as {{ dbt.type_string() }} ) as message_type_id,
         updated_at,
         _fivetran_synced

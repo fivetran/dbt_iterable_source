@@ -31,14 +31,14 @@ final as (
         cast(_fivetran_id as {{ dbt.type_string() }} ) as _fivetran_user_id,
         lower(email) as email,
         updated_at,
-        user_id,
+        cast(user_id as {{ dbt.type_string() }} ) as user_id,
         first_name,
         last_name,
         email_list_ids,
         phone_number,
         signup_date,
         signup_source,
-        iterable_user_id,
+        cast(iterable_user_id as {{ dbt.type_string() }} ) as iterable_user_id,
         _fivetran_synced
 
         {{ fivetran_utils.fill_pass_through_columns('iterable_user_pass_through_columns') }}
