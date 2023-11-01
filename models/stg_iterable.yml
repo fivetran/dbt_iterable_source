@@ -378,10 +378,6 @@ models:
           - unique
       - name: _fivetran_user_id
         description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type. This exists for users of the new schema starting Aug 2023. In the old schema, the unique identifier is email.
-      - name: email
-        description: The user's email. User identifier, for email-based projects. Previously was the unique identifier for user records, for Iterable customers before August 2023.  Exists if using the history version of the table.
-      - name: updated_at
-        description: Last update timestamp as epoch time in milliseconds. Exists if using the history version of the table.
       - name: unique_user_key
         description: The unique identifier of the user. With the new schema (Aug 2023), it is the _fivetran_user_id. This is a hash of user_id and/or email, depending on project type. If using the old schema, it is email.
 
@@ -398,9 +394,5 @@ models:
           - unique
       - name: _fivetran_user_id
         description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type. This exists for users of the new schema starting Aug 2023. In the old schema, the unique identifier is email.
-      - name: email
-        description: The user's email. User identifier, for email-based projects. Previously was the unique identifier for user records, for Iterable customers before August 2023.  Exists if using the history version of the table.
-      - name: updated_at
-        description: Last update timestamp as epoch time in milliseconds. Exists if using the history version of the table.
       - name: unique_user_key
         description: The unique identifier of the user. With the new schema (Aug 2023), it is the _fivetran_user_id. This is a hash of user_id and/or email, depending on project type. If using the old schema, it is email.
