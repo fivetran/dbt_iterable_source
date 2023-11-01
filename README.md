@@ -79,15 +79,14 @@ This package includes fields we judged were standard across Iterable users. Howe
 # dbt_project.yml
 
 vars:
-  iterable_source:
-    iterable_event_pass_through_columns:
-      - name: "event_custom_field"
-        alias: "event_field"
-    iterable_user_pass_through_columns:
-      - name: "unique_string_field"
-        alias: "field_id"
-        transform_sql: "cast(field_id as string)"
-      - name: "another_user_field"
+  iterable_event_pass_through_columns:
+    - name: "event_custom_field"
+      alias: "event_field"
+  iterable_user_pass_through_columns:
+    - name: "unique_string_field"
+      alias: "field_id"
+      transform_sql: "cast(field_id as string)"
+    - name: "another_user_field"
 ```
 
 ### Changing the Build Schema
