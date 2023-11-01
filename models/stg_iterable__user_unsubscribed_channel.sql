@@ -31,13 +31,18 @@ final as (
         coalesce(_fivetran_id, email) as unique_user_key,
         cast(channel_id as {{ dbt.type_string() }} ) as channel_id,
         {{ dbt_utils.generate_surrogate_key(['_fivetran_id', 'channel_id', 'email', 'updated_at']) }} as unsub_channel_unique_key,
-        rank() over(partition by coalesce(email, _fivetran_id) order by coalesce(updated_at, _fivetran_id) desc) as latest_batch_index,
         _fivetran_synced
 
     from fields
 )
 
 
-select *
+select 
+    *
+
+{% if does_table_exist('user_unsubscribed_channel') == 'false' %}
+, rank() over(partition by email order by updated_at desc) as latest_batch_index
+{% endif %}
+
 from final
 
