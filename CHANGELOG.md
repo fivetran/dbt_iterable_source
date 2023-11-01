@@ -22,6 +22,7 @@ For customers using the new August 2023 schema, please note the following change
 ## Under the Hood:
 - Past August 2023, the `user_unsubscribed_channel_history` and `user_unsubscribed_message_type_history` Iterable objects will no longer be history tables. In addition, the columns have changed. We have checks in place that will automatically persist the respective columns depending on what exists in your schema.
   - In addition, we have added generated keys to these 2 tables that we will use for uniqueness tests. The unique key generated depends on whether you are using the history version of the 2 tables. For more information, refer to our [documentation](https://github.com/fivetran/dbt_iterable_source/blob/main/models/stg_iterable.yml).
+- Explicitly casts the `*_id` fields in the staging models as strings. This ensures that downstream, joins will work and the JSON as string operations are not impacted by errors if the connector syncs this field as a JSON datatype.
 
 
 # dbt_iterable_source v0.7.0

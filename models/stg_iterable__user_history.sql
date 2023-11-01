@@ -34,7 +34,7 @@ final as (
         cast(user_id as {{ dbt.type_string() }} ) as user_id,
         first_name,
         last_name,
-        email_list_ids,
+        cast(email_list_ids as {{ dbt.type_string() }}) as email_list_ids,
         phone_number,
         signup_date,
         signup_source,
