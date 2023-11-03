@@ -22,6 +22,12 @@ fields as (
             )
         }}
         
+        --The below script allows for pass through columns.
+        {% if var('iterable_event_pass_through_columns') %} 
+        ,
+        {{ var('iterable_event_pass_through_columns') | join (", ")}}
+
+        {% endif %}
     from base
 ),
 

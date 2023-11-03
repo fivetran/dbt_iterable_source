@@ -13,6 +13,7 @@
     {"name": "updated_at", "datatype": dbt.type_timestamp()},
     {"name": "user_id", "datatype": dbt.type_string()},
     {"name": "iterable_user_id", "datatype": dbt.type_string()}
+    
 ] %}
 
 {{ return(columns) }}

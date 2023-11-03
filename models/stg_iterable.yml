@@ -343,7 +343,7 @@ models:
         tests:
           - not_null
       - name: email
-        description: The user's email. User identifier, for email-based projects. Previously was the unique identifier for user records, for Iterable customers before August 2023. 
+        description: The user's email. User identifier, for email-based projects. Previously was the unique identifier for user records, for the old Iterable schema before the August 2023 updates. 
       - name: user_id
         description:  User identifier, for userID-based projects.
       - name: first_name

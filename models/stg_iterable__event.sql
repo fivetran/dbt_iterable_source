@@ -49,8 +49,6 @@ final as (
         _fivetran_synced,
         cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id
 
-        {{ fivetran_utils.fill_pass_through_columns('iterable_event_pass_through_columns') }}
-
     from fields
 )
 

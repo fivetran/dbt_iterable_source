@@ -24,6 +24,13 @@ fields as (
                 staging_columns=get_event_extension_columns()
             )
         }}
+
+        --The below script allows for pass through columns.
+        {% if var('iterable_event_pass_through_columns') %} 
+        ,
+        {{ var('iterable_event_pass_through_columns') | join (", ")}}
+
+        {% endif %}
         
     from base
 ),
@@ -46,8 +53,6 @@ final as (
         experiment_id,
         from_phone_number_id,
         from_smssender_id,
-        image_url,
-        is_ghost_push,
         cast(link_id as {{ dbt.type_string() }} ) as link_id,
         link_url,
         locale,
@@ -56,10 +61,6 @@ final as (
         push_message,
         region,
         sms_message,
-        sms_provider_response_code,
-        sms_provider_response_message,
-        sms_provider_response_more_info,
-        sms_provider_response_status,
         sound,
         to_phone_number,
         url,
@@ -74,19 +75,20 @@ final as (
         in_app_body,
         is_sms_estimation,
         labels,
-        message_context,
         message_status,
         mms_send_count,
-        product_recommendation_count,
-        proxy_source,
         reason,
         sms_send_count,
-        web_push_body,
-        web_push_click_action,
-        web_push_icon,
-        web_push_message,
         _fivetran_synced,
         cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id
+
+        --The below script allows for pass through columns.
+        {% if var('iterable_event_pass_through_columns') %} 
+        ,
+        {{ var('iterable_event_pass_through_columns') | join (", ")}}
+
+        {% endif %}
+        
     from fields
 )
 
