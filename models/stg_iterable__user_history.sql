@@ -21,11 +21,11 @@ fields as (
                 staging_columns=get_user_history_columns()
             )
         }}
-        
+
         --The below script allows for pass through columns.
-        {% if var('iterable_event_pass_through_columns') %} 
+        {% if var('iterable_user_pass_through_columns') %} 
         ,
-        {{ var('iterable_event_pass_through_columns') | join (", ")}}
+        {{ var('iterable_user_pass_through_columns') | join (", ")}}
 
         {% endif %}
     from base

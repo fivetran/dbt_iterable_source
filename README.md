@@ -75,20 +75,14 @@ vars:
 
 ### Passing Through Additional Fields
 
-This package includes fields we judged were standard across Iterable users. However, the Fivetran connector allows for custom columns to be brought through in the `event` and `user_history` objects. Therefore, if you wish to bring them through in these data models, leverage our pass-through column variables. These variables allow for the pass-through fields to be aliased (alias) and casted (transform_sql) if desired, but not required. Datatype casting is configured via a sql snippet within the transform_sql key. You may add the desired sql while omitting the `as field_name` at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
+This package includes fields we judged were standard across Iterable users. However, the Fivetran connector allows for custom columns to be brought through in the `event` and `user_history` objects. Therefore, if you wish to bring them through in these data models, leverage our pass-through column variables. Use the below format for declaring the respective pass-through variables:
 
 ```yml
 # dbt_project.yml
 
 vars:
-  iterable_event_pass_through_columns:
-    - name: "event_custom_field"
-      alias: "event_field"
-  iterable_user_pass_through_columns:
-    - name: "unique_string_field"
-      alias: "field_id"
-      transform_sql: "cast(field_id as string)"
-    - name: "another_user_field"
+  iterable_event_pass_through_columns: [event_field]
+  iterable_user_pass_through_columns: [user_field]
 ```
 
 ### Changing the Build Schema

@@ -45,8 +45,6 @@ final as (
         cast(canonical_url_id as {{ dbt.type_string() }} ) as canonical_url_id,
         content_available as is_content_available,
         cast(content_id as {{ dbt.type_string() }} ) as content_id,
-        deeplink_android,
-        deeplink_ios,
         device,
         cast(email_id as {{ dbt.type_string() }}) as email_id,
         email_subject,
@@ -61,7 +59,6 @@ final as (
         push_message,
         region,
         sms_message,
-        sound,
         to_phone_number,
         url,
         cast(workflow_id as {{ dbt.type_string() }} ) as workflow_id,
@@ -88,7 +85,7 @@ final as (
         {{ var('iterable_event_pass_through_columns') | join (", ")}}
 
         {% endif %}
-        
+
     from fields
 )
 
