@@ -23,9 +23,9 @@ fields as (
         }}
 
         --The below script allows for pass through columns.
-        {% if var('iterable_user_pass_through_columns') %} 
+        {% if var('iterable_user_history_pass_through_columns') %} 
         ,
-        {{ var('iterable_user_pass_through_columns') | join (", ")}}
+        {{ var('iterable_user_history_pass_through_columns') | join (", ")}}
 
         {% endif %}
     from base
@@ -48,7 +48,7 @@ final as (
         _fivetran_synced,
         coalesce(_fivetran_id, email) as unique_user_key
 
-        {{ fivetran_utils.fill_pass_through_columns('iterable_user_pass_through_columns') }}
+        {{ fivetran_utils.fill_pass_through_columns('iterable_user_history_pass_through_columns') }}
 
     from fields
 )

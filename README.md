@@ -82,7 +82,7 @@ This package includes fields we judged were standard across Iterable users. Howe
 
 vars:
   iterable_event_pass_through_columns: [event_field]
-  iterable_user_pass_through_columns: [user_field]
+  iterable_user_history_pass_through_columns: [user_field]
 ```
 
 ### Changing the Build Schema

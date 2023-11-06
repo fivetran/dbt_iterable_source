@@ -31,6 +31,7 @@ final as (
     select 
 
         cast(_fivetran_id as {{ dbt.type_string() }} ) as _fivetran_user_id,
+        coalesce(_fivetran_id, email) as unique_user_key,
         cast(message_type_id as {{ dbt.type_string() }} ) as message_type_id,
         {{ dbt_utils.generate_surrogate_key(['_fivetran_id', 'email', 'message_type_id','updated_at']) }} as unsub_message_type_unique_key,
         
@@ -40,8 +41,8 @@ final as (
         1 as latest_batch_index,
         {% endif %}
 
-        _fivetran_synced,
-        coalesce(_fivetran_id, email) as unique_user_key
+        updated_at,
+        _fivetran_synced
 
     from fields
 )

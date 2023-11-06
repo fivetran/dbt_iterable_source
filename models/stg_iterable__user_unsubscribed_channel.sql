@@ -38,6 +38,7 @@ final as (
         1 as latest_batch_index,
         {% endif %}
 
+        updated_at,
         _fivetran_synced
 
     from fields
