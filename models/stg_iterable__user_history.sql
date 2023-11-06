@@ -46,7 +46,7 @@ final as (
         signup_source,
         cast(iterable_user_id as {{ dbt.type_string() }} ) as iterable_user_id,
         _fivetran_synced,
-        coalesce(_fivetran_id, email) as unique_user_key
+        coalesce(cast(_fivetran_id as {{ dbt.type_string() }} ) , email) as unique_user_key
 
         {{ fivetran_utils.fill_pass_through_columns('iterable_user_history_pass_through_columns') }}
 

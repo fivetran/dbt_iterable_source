@@ -28,7 +28,7 @@ final as (
     select
 
         cast(_fivetran_id as {{ dbt.type_string() }} ) as _fivetran_user_id,
-        coalesce(_fivetran_id, email) as unique_user_key,
+        coalesce(cast(_fivetran_id as {{ dbt.type_string() }} ), email) as unique_user_key,
         cast(channel_id as {{ dbt.type_string() }} ) as channel_id,
         {{ dbt_utils.generate_surrogate_key(['_fivetran_id', 'channel_id', 'email', 'updated_at']) }} as unsub_channel_unique_key,
         
