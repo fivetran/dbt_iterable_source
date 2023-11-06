@@ -45,14 +45,13 @@ final as (
         signup_date,
         signup_source,
         cast(iterable_user_id as {{ dbt.type_string() }} ) as iterable_user_id,
-        _fivetran_synced
+        _fivetran_synced,
+        coalesce(_fivetran_id, email) as unique_user_key
 
         {{ fivetran_utils.fill_pass_through_columns('iterable_user_pass_through_columns') }}
 
     from fields
 )
 
-select 
-    *,
-    coalesce(_fivetran_user_id, email) as unique_user_key
+select *
 from final

@@ -69,7 +69,7 @@ vars:
 ```
 
 
-## (Optional) Step 6: Additional configurations
+## (Optional) Step 5: Additional configurations
 <details><summary>Expand for details</summary>
 <br>
 
@@ -115,7 +115,7 @@ vars:
 
 </details>
 
-## (Optional) Step 7: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand for details</summary>
 <br>
     

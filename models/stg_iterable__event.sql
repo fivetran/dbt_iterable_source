@@ -47,12 +47,11 @@ final as (
         user_agent,
         user_agent_device,
         _fivetran_synced,
-        cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id
+        cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id,
+        coalesce(_fivetran_user_id, email) as unique_user_key
 
     from fields
 )
 
-select 
-    *,
-    coalesce(_fivetran_user_id, email) as unique_user_key
+select *
 from final
