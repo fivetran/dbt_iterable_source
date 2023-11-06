@@ -4,7 +4,6 @@
 [PR #28](https://github.com/fivetran/dbt_iterable_source/pull/28) includes updates in response to the [Aug 2023 updates](https://fivetran.com/docs/applications/iterable/changelog#august2023) for the Iterable connector.
 
 ## 🚨 Breaking Changes 🚨
-For customers using the new August 2023 schema, please note the following changes:
 -  We have removed `user_device_history` as the value is marginal.
 - We now allow for custom fields to be brought through in the `event` and `user` tables
 - Added the fields `updated_by_user_id` and `message_medium` to `stg_iterable__campaign_history`
