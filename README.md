@@ -75,13 +75,13 @@ vars:
 
 ### Passing Through Additional Fields
 
-This package includes fields we judged were standard across Iterable users. However, the Fivetran connector allows for custom columns to be brought through in the `event` and `user_history` objects. Therefore, if you wish to bring them through in these data models, leverage our pass-through column variables. Use the below format for declaring the respective pass-through variables:
+This package includes fields we judged were standard across Iterable users. However, the Fivetran connector allows for custom columns to be brought through in the `event_extension` and `user_history` objects. Therefore, if you wish to bring them through in these data models, leverage our pass-through column variables. Use the below format for declaring the respective pass-through variables:
 
 ```yml
 # dbt_project.yml
 
 vars:
-  iterable_event_pass_through_columns: [event_field]
+  iterable_event_extension_pass_through_columns: [event_field]
   iterable_user_history_pass_through_columns: [user_field]
 ```
 
