@@ -39,6 +39,8 @@ models:
         description: ID of the user who updated this record
       - name: message_medium
         description: The medium that this message was sent via, for example Email or InApp
+      - name: workflow_id
+        description: Reference to the workflow which the event originated
 
   - name: stg_iterable__campaign_label_history
     description: Table containing a history of labels.
@@ -162,10 +164,6 @@ models:
         description: Content available from the event
       - name: content_id
         description: Reference to the content associated with the event
-      - name: deeplink_android
-        description: Deeplink associated with the event from an android device
-      - name: deeplink_ios
-        description: Deeplink associated with the event from an ios device
       - name: device
         description: The device associated with the event
       - name: email_id
@@ -178,10 +176,6 @@ models:
         description: Reference to the phone number which the event is from
       - name: from_smssender_id
         description: Reference to the sms sender which the event is from
-      - name: image_url
-        description: Image url of the event
-      - name: is_ghost_push
-        description: Boolean indicating if the event is a result of a ghost push
       - name: link_id
         description: Reference to the link associated with the event
       - name: link_url
@@ -198,16 +192,6 @@ models:
         description: Region of the event
       - name: sms_message
         description: Boolean indicating if the event is an sms message
-      - name: sms_provider_response_code
-        description: sms provider response code from the event
-      - name: sms_provider_response_message
-        description: sms provider response message from the event
-      - name: sms_provider_response_more_info
-        description: sms provider response addition info from the event
-      - name: sms_provider_response_status
-        description: Status of the sms provider response from the event
-      - name: sound
-        description: Boolean indicating if a sound was used with the event
       - name: to_phone_number
         description: To phone number associated with the event
       - name: url
@@ -256,7 +240,7 @@ models:
         description: The content or body of a web push notification sent as part of the event.
       - name: web_push_click_action 
         description: The action triggered when a recipient clicks a web push notification.
-      - name: web_push_icon 
+      - name: web_push_icon
         description: The icon or image associated with the web push notification.
       - name: web_push_message 
         description: The message or notification sent to web users as part of the event.
@@ -380,6 +364,10 @@ models:
         description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type. This exists for users of the new schema starting Aug 2023. In the old schema, the unique identifier is email.
       - name: unique_user_key
         description: The unique identifier of the user. With the new schema (Aug 2023), it is the _fivetran_user_id. This is a hash of user_id and/or email, depending on project type. If using the old schema, it is email.
+      - name: latest_batch_index
+        description: Indexes each user record based on the most recent available.
+      - name: updated_at
+        description: Last update timestamp as epoch time in milliseconds
 
   - name: stg_iterable__user_unsub_message_type
     description: Table containing the message types from which a user has unsubscribed. "Unsubscribed" is shortened to "unsub" for postgres compatibility.
@@ -396,3 +384,7 @@ models:
         description: A Fivetran-created unique identifier for users, derived from hashing user_id and/or email, depending on project type. This exists for users of the new schema starting Aug 2023. In the old schema, the unique identifier is email.
       - name: unique_user_key
         description: The unique identifier of the user. With the new schema (Aug 2023), it is the _fivetran_user_id. This is a hash of user_id and/or email, depending on project type. If using the old schema, it is email.
+      - name: latest_batch_index
+        description: Indexes each user record based on the most recent available.
+      - name: updated_at
+        description: Last update timestamp as epoch time in milliseconds
