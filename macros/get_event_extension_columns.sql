@@ -44,6 +44,8 @@
     {"name": "_fivetran_user_id", "datatype": dbt.type_string()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('iterable_event_extension_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}

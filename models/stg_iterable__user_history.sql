@@ -22,12 +22,6 @@ fields as (
             )
         }}
 
-        --The below script allows for pass through columns.
-        {% if var('iterable_user_history_pass_through_columns') %} 
-        ,
-        {{ var('iterable_user_history_pass_through_columns') | join (", ")}}
-
-        {% endif %}
     from base
 ),
 

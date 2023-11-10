@@ -16,6 +16,8 @@
     
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('iterable_user_history_pass_through_columns')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}

@@ -25,13 +25,6 @@ fields as (
             )
         }}
 
-        --The below script allows for pass through columns.
-        {% if var('iterable_event_extension_pass_through_columns') %} 
-        ,
-        {{ var('iterable_event_extension_pass_through_columns') | join (", ")}}
-
-        {% endif %}
-        
     from base
 ),
 
@@ -80,11 +73,7 @@ final as (
         cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id
 
         --The below script allows for pass through columns.
-        {% if var('iterable_event_extension_pass_through_columns') %} 
-        ,
-        {{ var('iterable_event_extension_pass_through_columns') | join (", ")}}
-
-        {% endif %}
+        {{ fivetran_utils.fill_pass_through_columns('iterable_event_extension_pass_through_columns') }}
 
     from fields
 )
