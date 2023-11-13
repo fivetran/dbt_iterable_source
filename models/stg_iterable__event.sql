@@ -30,6 +30,7 @@ final as (
     
     select
         cast(_fivetran_id as {{ dbt.type_string() }} ) as event_id,
+        {{ dbt_utils.generate_surrogate_key(['event_id','_fivetran_user_id']) }} as unique_event_id,
         cast(campaign_id as {{ dbt.type_string() }} ) as campaign_id,
         cast(content_id as {{ dbt.type_string() }} ) as content_id,
         created_at,
