@@ -31,6 +31,7 @@ fields as (
 final as (
     select
         cast(_fivetran_id as {{ dbt.type_string() }} ) as event_id,
+        {{ dbt_utils.generate_surrogate_key(['_fivetran_id','_fivetran_user_id']) }} as unique_event_id,
         app_already_running as is_app_already_running,
         badge,
         catalog_collection_count,

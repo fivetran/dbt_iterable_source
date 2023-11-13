@@ -165,6 +165,10 @@ models:
         description: A Fivetran-created unique identifier derived from hashing campaign_id, created_at, and event_name. 
         tests:
           - not_null
+      - name: unique_event_id
+        description: A surrogate key made up of event_id and _fivetran_user_id.
+        tests:
+          - unique
       - name: is_app_already_running
         description: Boolean indicating if the app is currently running or not
       - name: badge
