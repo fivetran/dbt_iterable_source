@@ -31,6 +31,8 @@ final as (
     select
         cast(_fivetran_id as {{ dbt.type_string() }} ) as event_id,
         {{ dbt_utils.generate_surrogate_key(['_fivetran_id','_fivetran_user_id']) }} as unique_event_id,
+        cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id,
+        coalesce(cast(_fivetran_user_id as {{ dbt.type_string() }} ) , email) as unique_user_key,
         cast(campaign_id as {{ dbt.type_string() }} ) as campaign_id,
         cast(content_id as {{ dbt.type_string() }} ) as content_id,
         created_at,
@@ -47,9 +49,7 @@ final as (
         unsub_source,
         user_agent,
         user_agent_device,
-        _fivetran_synced,
-        cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id,
-        coalesce(cast(_fivetran_user_id as {{ dbt.type_string() }} ) , email) as unique_user_key
+        _fivetran_synced
 
     from fields
 )
