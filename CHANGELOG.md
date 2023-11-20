@@ -21,7 +21,7 @@
 - Added the fields `list_description` to `stg_iterable__list`
 - Added the fields `message_type_created_at, frequency_cap, rate_limit_per_minute, subscription_policy, and message_type_updated_at` to `stg_iterable__message_type`
 - Added the field `_fivetran_user_id` to `stg_iterable__user_history`
-- Introduced passthrough column functionality for `user_history` and `event_extension` objects. For more information refer to the [README](README.md)
+- Introduced passthrough column functionality for `user_history` and `event_extension` objects. For more information refer to the [README](./README.md#passing-through-additional-fields).
 
 ## Field Removals
 - Removed the following fields from `stg_iterable__event_extension`: `deeplink_android, deeplink_ios, image_url, is_ghost_push, link_id, sms_provider_response_code, sms_provider_response_message, sms_provider_response_more_info, sms_provider_response_status, sound`
