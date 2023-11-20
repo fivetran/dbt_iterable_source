@@ -11,7 +11,7 @@
 |---------------------------|---------------------------|
 | `stg_iterable__user_unsub_message_type_history` | `stg_iterable__user_unsub_message_type` |
 | `stg_iterable__user_unsub_message_type_history_tmp` | `stg_iterable__user_unsub_message_type_tmp` |
-| `stg_iterable__user_unsubscribed_channel_history` | `stg_user_unsubscribed_channel` |
+| `stg_iterable__user_unsubscribed_channel_history` | `stg_iterable__user_unsubscribed_channel` |
 | `stg_iterable__user_unsubscribed_channel_history_tmp` | `stg_iterable__user_unsubscribed_channel_tmp` |
 
 ## Feature Updates
