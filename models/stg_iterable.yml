@@ -105,10 +105,6 @@ models:
 
   - name: stg_iterable__event
     description: Table containing individual events within campaigns.
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - unique_event_id
     columns:
       - name: event_id
         description: A Fivetran-created unique identifier derived from hashing campaign_id, created_at, and event_name. 
@@ -116,6 +112,8 @@ models:
           - not_null
       - name: unique_event_id
         description: A surrogate key made up of event_id and _fivetran_user_id.
+        tests:
+          - unique
       - name: campaign_id
         description: Reference to the campaign from which the event originated
       - name: content_id

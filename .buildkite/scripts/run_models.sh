@@ -21,6 +21,5 @@ dbt run --target "$db" --full-refresh
 dbt test --target "$db"
 dbt run --vars '{iterable__using_campaign_label_history: false, iterable__using_user_unsubscribed_message_type_history: false, iterable__using_campaign_suppression_list_history: false}' --full-refresh --target "$db"
 dbt run --vars '{ does_table_exist('user_unsubscribed_message_type'): false, does_table_exist('user_unsubscribed_channel'): false}' --full-refresh --target "$db"
-dbt run --vars '{ does_table_exist('user_unsubscribed_message_type'): true, does_table_exist('user_unsubscribed_channel'): true}' --full-refresh --target "$db"
 dbt test --target "$db"
 dbt run-operation fivetran_utils.drop_schemas_automation --target "$db"
