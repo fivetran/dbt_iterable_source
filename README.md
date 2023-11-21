@@ -27,6 +27,13 @@ To use this dbt package, you must have the following:
 
 - At least one Fivetran Iterable connector syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
+
+#### Unsubscribe tables are no longer history tables
+
+For connectors created past August 2023, the `user_unsubscribed_channel_history` and `user_unsubscribed_message_type_history` Iterable objects will no longer be history tables as part of schema changes following Iterable's API updates. The fields have also changed. There is no lift required, since we have checks in place that will automatically persist the respective fields depending on what exists in your schema (they will still be history tables if you are using the old schema).
+
+*Please be sure you are syncing them as either both history or non-history.*
+
 ## Step 2: Install the package
 Include the following Iterable package version in your `packages.yml` file.
 
@@ -35,7 +42,7 @@ Include the following Iterable package version in your `packages.yml` file.
 ```yaml
 packages:
   - package: fivetran/iterable_source
-    version: [">=0.7.0", "<0.8.0"]
+    version: [">=0.8.0", "<0.9.0"]
 ```
 
 ## Step 3: Define database and schema variables
@@ -51,20 +58,42 @@ vars:
 
 Your Iterable connector might not sync every table that this package expects. If your syncs exclude certain tables, it is either because you do not use that functionality in Iterable or have actively excluded some tables from your syncs. In order to enable or disable the relevant tables in the package, you will need to add the following variable(s) to your `dbt_project.yml` file.
 
-By default, all variables are assumed to be `true` (with exception of `iterable__using_user_device_history`, which is set to `false`). 
+By default, all variables are assumed to be `true`. 
 
 ```yml
 vars:
     iterable__using_campaign_label_history: false                    # default is true
-    iterable__using_user_unsubscribed_message_type_history: false    # default is true
+    iterable__using_user_unsubscribed_message_type: false           # default is true
     iterable__using_campaign_suppression_list_history: false         # default is true   
 
-    iterable__using_user_device_history: true                        # default is false
 ```
+
 
 ## (Optional) Step 5: Additional configurations
 <details><summary>Expand for details</summary>
 <br>
+
+### Passing Through Additional Fields
+
+This package includes fields we judged were standard across Iterable users. However, the Fivetran connector allows for additional columns to be brought through in the `event_extension` and `user_history` objects. Therefore, if you wish to bring them through, leverage our passthrough column variables.
+
+**Notice**: A `dbt run --full-refresh` is required each time these variables are edited.
+
+These variables allow for the passthrough fields to be aliased (alias) and casted (transform_sql) if desired, but not required. Datatype casting is configured via a sql snippet within the transform_sql key. You may add the desired sql while omitting the as field_name at the end and your custom pass-though fields will be casted accordingly. Use the below format for declaring the respective pass-through variables:
+
+```yml
+# dbt_project.yml
+
+vars:
+  iterable_event_extension_pass_through_columns:
+    - name: "event_extension_field"
+      alias: "renamed_field"
+      transform_sql: "cast(renamed_field as string)"
+  iterable_user_history_pass_through_columns:
+    - name: "user_attribute"
+      alias: "renamed_user_attribute"
+    - name: "user_attribute_2"
+```
 
 ### Changing the Build Schema
 
@@ -93,6 +122,7 @@ By default, this package refers to the new table (`CAMPAIGN_SUPPRESSION_LIST_HIS
 vars:
     iterable_campaign_suppression_list_history_identifier: "campaign_supression_list_history"
 ```
+
 </details>
 
 ## (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™

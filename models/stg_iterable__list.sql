@@ -27,6 +27,7 @@ final as (
         name as list_name,
         list_type,
         created_at,
+        description as list_description,
         _fivetran_synced
     from fields
 )

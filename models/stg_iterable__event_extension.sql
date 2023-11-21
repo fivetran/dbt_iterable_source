@@ -24,29 +24,28 @@ fields as (
                 staging_columns=get_event_extension_columns()
             )
         }}
-        
+
     from base
 ),
 
 final as (
     select
-        _fivetran_id as event_id,
+        cast(_fivetran_id as {{ dbt.type_string() }} ) as event_id,
+        {{ dbt_utils.generate_surrogate_key(['_fivetran_id','_fivetran_user_id']) }} as unique_event_id,
         app_already_running as is_app_already_running,
         badge,
-        canonical_url_id,
+        catalog_collection_count,
+        catalog_lookup_count,
+        cast(canonical_url_id as {{ dbt.type_string() }} ) as canonical_url_id,
         content_available as is_content_available,
-        content_id,
-        deeplink_android,
-        deeplink_ios,
+        cast(content_id as {{ dbt.type_string() }} ) as content_id,
         device,
-        email_id,
+        cast(email_id as {{ dbt.type_string() }}) as email_id,
         email_subject,
         experiment_id,
         from_phone_number_id,
         from_smssender_id,
-        image_url,
-        is_ghost_push,
-        link_id,
+        cast(link_id as {{ dbt.type_string() }} ) as link_id,
         link_url,
         locale,
         payload,
@@ -54,16 +53,29 @@ final as (
         push_message,
         region,
         sms_message,
-        sms_provider_response_code,
-        sms_provider_response_message,
-        sms_provider_response_more_info,
-        sms_provider_response_status,
-        sound,
         to_phone_number,
         url,
-        workflow_id,
+        cast(workflow_id as {{ dbt.type_string() }} ) as workflow_id,
         workflow_name,
-        _fivetran_synced
+        city,
+        clicked_url,
+        country,
+        error_code,
+        expires_at,
+        from_phone_number,
+        in_app_body,
+        is_sms_estimation,
+        labels,
+        message_status,
+        mms_send_count,
+        reason,
+        sms_send_count,
+        _fivetran_synced,
+        cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id
+
+        --The below script allows for pass through columns.
+        {{ fivetran_utils.fill_pass_through_columns('iterable_event_extension_pass_through_columns') }}
+
     from fields
 )
 

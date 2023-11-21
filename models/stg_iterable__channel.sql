@@ -27,14 +27,14 @@ fields as (
 ),
 
 final as (
-    
-    select 
-        id as channel_id, 
+
+    select
+        cast(id as {{ dbt.type_string() }} ) as channel_id,
         name as channel_name,
         channel_type,
         message_medium,
         _fivetran_synced
-        
+
     from fields
 )
 

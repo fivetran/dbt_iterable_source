@@ -1,12 +1,12 @@
 config-version: 2
 name: 'iterable_source_integration_tests'
 
-version: '0.7.0'
+version: '0.8.0'
 profile: 'integration_tests'
 
 vars:
   iterable_source:
-    iterable_schema: iterable_source_integration_tests_1
+    iterable_schema: iterable_source_integration_tests_3
     iterable_campaign_history_identifier: "campaign_history_data"
     iterable_campaign_label_history_identifier: "campaign_label_history_data"
     iterable_campaign_list_history_identifier: "campaign_list_history_data"
@@ -18,7 +18,9 @@ vars:
     iterable_message_type_identifier: "message_type_data"
     iterable_template_history_identifier: "template_history_data"
     iterable_user_history_identifier: "user_history_data"
-    iterable_user_device_history_identifier: "user_device_history_data"
+    iterable_user_device_identifier: "user_device_data"
+    iterable_user_unsubscribed_channel_identifier: "user_unsubscribed_channel_data"
+    iterable_user_unsubscribed_message_type_identifier: "user_unsubscribed_message_type_data"
     iterable_user_unsubscribed_channel_history_identifier: "user_unsubscribed_channel_history_data"
     iterable_user_unsubscribed_message_type_history_identifier: "user_unsubscribed_message_type_history_data"
     is_old_spelling: false
@@ -30,10 +32,12 @@ seeds:
       _fivetran_synced: timestamp
     event_data:
       +column_types:
+        _fivetran_user_id: "{{ 'varchar(100)'  if target.type in ('redshift', 'postgres') else 'string'}}"
         transactional_data: "{{ 'varchar(100)'  if target.type in ('redshift', 'postgres') else 'string'}}"
         created_at: timestamp
     event_extension_data:
       +column_types:
+        _fivetran_user_id: "{{ 'varchar(100)'  if target.type in ('redshift', 'postgres') else 'string'}}"
         payload: "{{ 'varchar(100)'  if target.type in ('redshift', 'postgres') else 'string'}}"
 
 dispatch:

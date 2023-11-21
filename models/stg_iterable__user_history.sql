@@ -21,25 +21,31 @@ fields as (
                 staging_columns=get_user_history_columns()
             )
         }}
-        
+
     from base
 ),
 
 final as (
     
     select 
+        cast(_fivetran_id as {{ dbt.type_string() }} ) as _fivetran_user_id,
         lower(email) as email,
-        user_id,
+        updated_at,
+        cast(user_id as {{ dbt.type_string() }} ) as user_id,
         first_name,
         last_name,
-        email_list_ids,
+        cast(email_list_ids as {{ dbt.type_string() }}) as email_list_ids,
         phone_number,
         signup_date,
         signup_source,
-        updated_at,
-        _fivetran_synced
+        cast(iterable_user_id as {{ dbt.type_string() }} ) as iterable_user_id,
+        _fivetran_synced,
+        coalesce(cast(_fivetran_id as {{ dbt.type_string() }} ) , email) as unique_user_key
+
+        {{ fivetran_utils.fill_pass_through_columns('iterable_user_history_pass_through_columns') }}
+
     from fields
 )
 
-select * 
+select *
 from final

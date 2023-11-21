@@ -28,18 +28,21 @@ fields as (
 
 final as (
     
-    select 
-        _fivetran_id as event_id,
-        campaign_id,
-        content_id,
+    select
+        cast(_fivetran_id as {{ dbt.type_string() }} ) as event_id,
+        {{ dbt_utils.generate_surrogate_key(['_fivetran_id','_fivetran_user_id']) }} as unique_event_id,
+        cast(_fivetran_user_id as {{ dbt.type_string() }} ) as _fivetran_user_id,
+        coalesce(cast(_fivetran_user_id as {{ dbt.type_string() }} ) , email) as unique_user_key,
+        cast(campaign_id as {{ dbt.type_string() }} ) as campaign_id,
+        cast(content_id as {{ dbt.type_string() }} ) as content_id,
         created_at,
         cast( {{ dbt.date_trunc('day', 'created_at') }} as date) as created_on,
         lower(email) as email,
         additional_properties,
         event_name,
-        message_bus_id,
-        message_id,
-        message_type_id,
+        cast(message_bus_id as {{ dbt.type_string() }} ) as message_bus_id,
+        cast(message_id as {{ dbt.type_string() }} ) as message_id,
+        cast(message_type_id as {{ dbt.type_string() }} ) as message_type_id,
         recipient_state,
         status,
         transactional_data,
@@ -47,8 +50,9 @@ final as (
         user_agent,
         user_agent_device,
         _fivetran_synced
+
     from fields
 )
 
-select * 
+select *
 from final
