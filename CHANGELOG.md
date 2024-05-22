@@ -1,3 +1,17 @@
+# dbt_iterable_source v0.8.1
+[PR #30](https://github.com/fivetran/dbt_iterable_source/pull/30) introduces the following updates: 
+
+## Bug Fixes
+- IMPORTANT: This only impacts customers who are using Fivetran connectors that were setup before August 2023, when `user_unsubscribed_message_type_history` and `user_unsubscribed_channel_history` were the tables being used for tracking unsubscribe events.
+- Updated the `stg_iterable__user_unsub_message_type` model to partition the `latest_batch_index` value on `message_type_id` along with `email`. This brings in all unsubscribes for the `unique_user_key` across all message types for an email.
+- Updated `stg_iterable__user_unsubscribed_channel` and `stg_iterable__user_unsubscribed_channel` to partition the `latest_batch_index` value on `channel_id` along with `email`. This brings in all unsubscribes for the `unique_user_key` across all channels for an email.
+- These updates ensure that `iterable__user_unsubscriptions` in the `dbt_iterable` package brings in all the latest unsubscribing behavior for a user by channel and by message type, and not just the last unsubscription for a user based on the `updated_at` value.
+
+## Under the Hood
+- Updated seed files to effectively run and test that the new partitions worked as expected.
+- Updated [pull request and issue templates](https://github.com/fivetran/dbt_iterable_source/tree/v0.8.1/.github).
+- Included auto-releaser GitHub Actions workflow to automate future releases.
+
 # dbt_iterable_source v0.8.0
 
 ## API Updates
