@@ -1,6 +1,7 @@
-{{
-    config( materialized='view' )
-}}
+{{ config(
+    enabled=var('iterable__using_event_extension', True),
+    materialized='view'
+) }}
 
 with base as (
 
