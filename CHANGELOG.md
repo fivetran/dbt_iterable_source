@@ -1,4 +1,8 @@
 # dbt_iterable_source v0.8.2
+[PR #31](https://github.com/fivetran/dbt_iterable_source/pull/31) contains the following updates:
+
+## Bug Fixes
+- Introduces variable `iterable__using_event_extension` to disable the `stg_iterable__event_extension` model. This allows the downstream models to run even if the source `event_extension` table does not exist. For more information on how to configure refer to the [README](https://github.com/fivetran/dbt_iterable_source/blob/main/README.md#enabling-and-disabling-models).
 
 # dbt_iterable_source v0.8.1
 [PR #30](https://github.com/fivetran/dbt_iterable_source/pull/30) introduces the following updates: 
