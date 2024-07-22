@@ -76,7 +76,7 @@ vars:
 
 ### Passing Through Additional Fields
 
-This package includes fields we judged were standard across Iterable users. However, the Fivetran connector allows for additional columns to be brought through in the `event_extension` and `user_history` objects. Therefore, if you wish to bring them through, leverage our passthrough column variables. For event_extension columns, ensure that `iterable__using_event_extension` is set to True, which is the default.
+This package includes fields we judged were standard across Iterable users. However, the Fivetran connector allows for additional columns to be brought through in the `event_extension` and `user_history` objects. Therefore, if you wish to bring them through, leverage our passthrough column variables. For `event_extension` columns, ensure that `iterable__using_event_extension` is set to True, which is the default.
 
 **Notice**: A `dbt run --full-refresh` is required each time these variables are edited.
 
