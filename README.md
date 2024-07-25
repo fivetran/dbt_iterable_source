@@ -42,7 +42,7 @@ Include the following Iterable package version in your `packages.yml` file.
 ```yaml
 packages:
   - package: fivetran/iterable_source
-    version: [">=0.8.0", "<0.9.0"]
+    version: [">=0.9.0", "<0.10.0"]
 ```
 
 ## Step 3: Define database and schema variables
@@ -65,6 +65,7 @@ vars:
     iterable__using_campaign_label_history: false                    # default is true
     iterable__using_user_unsubscribed_message_type: false           # default is true
     iterable__using_campaign_suppression_list_history: false         # default is true   
+    iterable__using_event_extension: false         # default is true   
 
 ```
 
@@ -75,7 +76,7 @@ vars:
 
 ### Passing Through Additional Fields
 
-This package includes fields we judged were standard across Iterable users. However, the Fivetran connector allows for additional columns to be brought through in the `event_extension` and `user_history` objects. Therefore, if you wish to bring them through, leverage our passthrough column variables.
+This package includes fields we judged were standard across Iterable users. However, the Fivetran connector allows for additional columns to be brought through in the `event_extension` and `user_history` objects. Therefore, if you wish to bring them through, leverage our passthrough column variables. For `event_extension` columns, ensure that `iterable__using_event_extension` is set to True, which is the default.
 
 **Notice**: A `dbt run --full-refresh` is required each time these variables are edited.
 

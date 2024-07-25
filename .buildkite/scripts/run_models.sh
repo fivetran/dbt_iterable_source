@@ -19,7 +19,8 @@ dbt deps
 dbt seed --target "$db" --full-refresh
 dbt run --target "$db" --full-refresh
 dbt test --target "$db"
-dbt run --vars '{iterable__using_campaign_label_history: false, iterable__using_user_unsubscribed_message_type_history: false, iterable__using_campaign_suppression_list_history: false}' --full-refresh --target "$db"
+dbt run --vars '{iterable_user_history_pass_through_columns: [{name: "phone_number_updated_at"}], iterable_event_extension_pass_through_columns: [{name: "web_push_message"}]}' --full-refresh --target "$db" 
+dbt run --vars '{iterable__using_campaign_label_history: false, iterable__using_user_unsubscribed_message_type_history: false, iterable__using_campaign_suppression_list_history: false, iterable__using_event_extension: false}' --full-refresh --target "$db"
 dbt run --vars '{ does_table_exist('user_unsubscribed_message_type'): false, does_table_exist('user_unsubscribed_channel'): false}' --full-refresh --target "$db"
 dbt test --target "$db"
 dbt run-operation fivetran_utils.drop_schemas_automation --target "$db"

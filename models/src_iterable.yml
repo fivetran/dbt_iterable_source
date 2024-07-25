@@ -138,6 +138,8 @@ sources:
       - name: event_extension
         identifier: "{{ var('iterable_event_extension_identifier', 'event_extension')}}"
         description: Table containing additional properties from the event table.
+        config:
+          enabled: "{{ var('iterable__using_event_extension', true) }}"
         columns:
           - name: _fivetran_id
             description: A Fivetran-created unique identifier derived from hashing campaign_id, created_at, and event_name. 
