@@ -1,9 +1,21 @@
+{{ config(
+        materialized='incremental',
+        unique_key=['_fivetran_user_id','updated_at'],
+        incremental_strategy='insert_overwrite' if target.type in ('bigquery', 'spark', 'databricks') else 'delete+insert',
+        partition_by={"field": "updated_at", "data_type": "date"} if target.type not in ('spark','databricks') else ['updated_at'],
+        file_format='parquet',
+        on_schema_change='fail'
+    ) 
+}}
 
 with base as (
 
     select * 
     from {{ ref('stg_iterable__user_history_tmp') }}
 
+    {% if is_incremental() %}
+    where updated_at >= coalesce((select max(updated_at) from {{ this }} ), '2010-01-01')
+    {% endif %}
 ),
 
 fields as (
