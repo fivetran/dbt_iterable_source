@@ -1,5 +1,5 @@
 # dbt_iterable_source v0.9.1
-[PR #33](https://github.com/fivetran/dbt_iterable_source/pull/33) contains the following updates:
+[PR #38](https://github.com/fivetran/dbt_iterable_source/pull/38) contains the following updates:
 
 ## Feature Updates
 - Updated the `stg_iterable__user_history` model to be incremental. No new columns were introduced in this change.
