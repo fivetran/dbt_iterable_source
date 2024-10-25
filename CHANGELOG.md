@@ -1,6 +1,7 @@
 # dbt_iterable_source v0.10.0
 [PR #39](https://github.com/fivetran/dbt_iterable_source/pull/39) contains the following updates:
 
+## Bug Fix 
 - Removes the source freshness tests in the `src_iterable.yml`. This was originally causing run errors for users where tables weren't present in their schema but listed in the `src_iterable.yml`.
 
 # dbt_iterable_source v0.9.0
