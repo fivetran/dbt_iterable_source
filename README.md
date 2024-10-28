@@ -20,6 +20,8 @@
 - Generates a comprehensive data dictionary of your source and modeled Iterable data through the [dbt docs site](https://fivetran.github.io/dbt_iterable_source/).
 - These tables are designed to work simultaneously with our [Iterable transformation package](https://github.com/fivetran/dbt_iterable/).
 
+> This package does not apply freshness tests.
+
 ## How do I use the dbt package?
 
 ### Step 1: Prerequisites
@@ -71,8 +73,6 @@ vars:
 
 
 ### (Optional) Step 5: Additional configurations
-<details><summary>Expand for details</summary>
-<br>
 
 #### Passing Through Additional Fields
 
@@ -123,8 +123,6 @@ By default, this package refers to the new table (`CAMPAIGN_SUPPRESSION_LIST_HIS
 vars:
     iterable_campaign_suppression_list_history_identifier: "campaign_supression_list_history"
 ```
-
-</details>
 
 ### (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand for details</summary>
