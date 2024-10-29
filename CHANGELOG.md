@@ -4,8 +4,8 @@
 ## Bug Fix 
 - Removes the source freshness tests in the `src_iterable.yml`. This was originally causing run errors for users where tables weren't present in their schema but listed in the `src_iterable.yml`.
 
-## Under the Hood
-- Updates the materialization in `stg_iterable__user_history` from table to view in order to improve performance.
+## Breaking Change
+- Updates the materialization in `stg_iterable__user_history` from table to view in order to improve performance. We encourage you to run a `--full-refresh` to ensure there are no issues.
 
 # dbt_iterable_source v0.9.0
 [PR #31](https://github.com/fivetran/dbt_iterable_source/pull/31) contains the following updates:
