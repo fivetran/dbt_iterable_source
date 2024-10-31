@@ -3,12 +3,16 @@
 
 ## Bug Fix 
 - Removes the source freshness tests in the `src_iterable.yml`. This was originally causing run errors for users where tables weren't present in their schema but listed in the `src_iterable.yml`.
+- Removes `created_at` from the uniqueness test for `stg_iterable__event`. Uniqueness is now tested solely on `unique_event_id`, a surrogate key made up of `event_id` (`_fivetran_id` in the raw table) and `_fivetran_user_id`.
 
-## Breaking Change
+## Breaking Change (`--full-refresh` required after upgrading)  
 - Updates the materialization in `stg_iterable__user_history` from table to view in order to improve performance. We encourage you to run a `--full-refresh` to ensure there are no issues.
 
+## Documentation
+- Updates the descriptions of timestamp-based fields. Previously they were described as milliseconds since epoch time, but they should be standard timestamps.
+
 ## Contributors
-- [@justin-fundrise](https://github.com/justin-fundrise) ([Issue #36](https://github.com/fivetran/dbt_iterable_source/issues/36), [Issue #37](https://github.com/fivetran/dbt_iterable_source/issues/37))
+- [@justin-fundrise](https://github.com/justin-fundrise)
 
 # dbt_iterable_source v0.9.0
 [PR #31](https://github.com/fivetran/dbt_iterable_source/pull/31) contains the following updates:
