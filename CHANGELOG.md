@@ -2,7 +2,7 @@
 [PR #39](https://github.com/fivetran/dbt_iterable_source/pull/39) contains the following updates:
 
 ## Breaking Change (`--full-refresh` required after upgrading)  
-- Updates the materialization in `stg_iterable__user_history` from table to view in order to improve performance. We encourage you to run a `--full-refresh` to ensure there are no issues.
+- Updates the materialization in `stg_iterable__user_history` from table to view in order to improve performance. A `--full-refresh` is required after upgrading to ensure there are no issues.
 
 ## Bug Fix 
 - Removes the source freshness tests in the `src_iterable.yml`. This was originally causing run errors for users where tables weren't present in their schema but listed in the `src_iterable.yml`.
