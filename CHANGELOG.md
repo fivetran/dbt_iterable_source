@@ -4,7 +4,7 @@
 ## Breaking Change (`--full-refresh` required after upgrading)  
 - Updates the materialization in `stg_iterable__user_history` from table to view in order to improve performance. A `--full-refresh` is required after upgrading to ensure there are no issues.
 
-## Bug Fix 
+## Bug Fixes 
 - Removes the source freshness tests in the `src_iterable.yml`. This was originally causing run errors for users where tables weren't present in their schema but listed in the `src_iterable.yml`.
 - Removes `created_at` from the uniqueness test for `stg_iterable__event`. Uniqueness is now tested solely on `unique_event_id`, a surrogate key made up of `event_id` (`_fivetran_id` in the raw table, which is a Fivetran-created unique identifier derived from hashing campaign_id, created_at, and event_name) and `_fivetran_user_id` (a Fivetran-created column derived from a hash of `user_id` and/or `email`).
 
