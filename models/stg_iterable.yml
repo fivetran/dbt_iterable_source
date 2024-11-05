@@ -14,7 +14,7 @@ models:
         tests:
           - not_null
       - name: updated_at
-        description: Last update timestamp as epoch time in milliseconds
+        description: Last update timestamp
       - name: campaign_name
         description: User defined name of the campaign.
       - name: campaign_state
@@ -24,11 +24,11 @@ models:
       - name: send_size
         description: Size of the campaign. Number of individuals included in the campaign
       - name: start_at
-        description: Start timestamp as epoch time in milliseconds
+        description: Start timestamp
       - name: ended_at
-        description: Ended timestamp as epoch time in milliseconds
+        description: Ended timestamp
       - name: created_at
-        description: Creation timestamp as epoch time in milliseconds
+        description: Creation timestamp
       - name: recurring_campaign_id
         description: Reference to the recurring campaign, if applicable
       - name: created_by_user_id
@@ -54,7 +54,7 @@ models:
       - name: label
         description: Name of the label
       - name: updated_at
-        description: Last update timestamp as epoch time in milliseconds
+        description: Last update timestamp
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
 
@@ -68,7 +68,7 @@ models:
       - name: list_id
         description: Reference to the list used
       - name: updated_at
-        description: Last update timestamp as epoch time in milliseconds
+        description: Last update timestamp
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
 
@@ -82,7 +82,7 @@ models:
       - name: suppressed_list_id
         description: Reference to the list used
       - name: updated_at
-        description: Last update timestamp as epoch time in milliseconds
+        description: Last update timestamp
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
 
@@ -105,11 +105,6 @@ models:
 
   - name: stg_iterable__event
     description: Table containing individual events within campaigns.
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - unique_event_id
-            - created_at
     columns:
       - name: event_id
         description: A Fivetran-created unique identifier derived from hashing campaign_id, created_at, and event_name. 
@@ -117,12 +112,14 @@ models:
           - not_null
       - name: unique_event_id
         description: A surrogate key made up of event_id and _fivetran_user_id.
+        tests:
+          - unique
       - name: campaign_id
         description: Reference to the campaign from which the event originated
       - name: content_id
         description: Reference to the content the event is associated with
       - name: created_at
-        description: Creation timestamp as epoch time in milliseconds
+        description: Creation timestamp
       - name: created_on
         description: Creation date
       - name: email
@@ -261,7 +258,7 @@ models:
       - name: list_type
         description: The list type
       - name: created_at
-        description: Creation timestamp as epoch time in milliseconds
+        description: Creation timestamp
       - name: list_description
         description: Information about the list
       - name: _fivetran_synced
@@ -309,7 +306,7 @@ models:
       - name: template_type
         description: The type of the template
       - name: created_at
-        description: Creation timestamp as epoch time in milliseconds
+        description: Creation timestamp
       - name: client_template_id
         description: Reference to the client template
       - name: creator_user_id
@@ -317,7 +314,7 @@ models:
       - name: message_type_id
         description: Reference to the message type associated with the template
       - name: updated_at
-        description: Last update timestamp as epoch time in milliseconds
+        description: Last update timestamp
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
 
@@ -344,11 +341,11 @@ models:
       - name: email_list_ids
         description: Array of references to the lists associated with the user
       - name: signup_date
-        description: Timestamp as epoch time in milliseconds of when the user signed up
+        description: Timestamp of when the user signed up
       - name: signup_source
         description: Source where the user signed up
       - name: updated_at
-        description: Last update timestamp as epoch time in milliseconds
+        description: Last update timestamp
       - name: phone_number 
         description: Phone number associated with the user
       - name: iterable_user_id
@@ -376,7 +373,7 @@ models:
       - name: latest_batch_index
         description: Indexes each user record based on the most recent available.
       - name: updated_at
-        description: Last update timestamp as epoch time in milliseconds
+        description: Last update timestamp
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"
 
@@ -398,6 +395,6 @@ models:
       - name: latest_batch_index
         description: Indexes each user record based on the most recent available.
       - name: updated_at
-        description: Last update timestamp as epoch time in milliseconds
+        description: Last update timestamp
       - name: _fivetran_synced
         description: "{{ doc('_fivetran_synced') }}"

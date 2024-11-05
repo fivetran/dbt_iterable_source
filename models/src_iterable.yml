@@ -8,11 +8,6 @@ sources:
     loader: fivetran
     loaded_at_field: _fivetran_synced
 
-    freshness:
-      warn_after: {count: 72, period: hour}
-      error_after: {count: 168, period: hour}
-
-
     tables:
       - name: campaign_history
         identifier: "{{ var('iterable_campaign_history_identifier', 'campaign_history')}}"
@@ -21,7 +16,7 @@ sources:
           - name: id
             description: Unique identifier of the campaign record
           - name: updated_at
-            description: Last update's timestamp as epoch time in milliseconds
+            description: Last update's timestamp
           - name: name
             description: User defined name of the campaign.
           - name: campaign_state
@@ -31,11 +26,11 @@ sources:
           - name: send_size
             description: Size of the campaign. Number of individuals included in the campaign
           - name: start_at
-            description: Start timestamp as epoch time in milliseconds
+            description: Start timestamp
           - name: ended_at
-            description: Ended timestamp as epoch time in milliseconds
+            description: Ended timestamp
           - name: created_at
-            description: Creation timestamp as epoch time in milliseconds
+            description: Creation timestamp
           - name: recurring_campaign_id
             description: Reference to the recurring campaign, if applicable
           - name: created_by_user_id
@@ -58,7 +53,7 @@ sources:
           - name: label
             description: Name of the label
           - name: updated_at
-            description: Last update timestamp as epoch time in milliseconds
+            description: Last update timestamp
 
       - name: campaign_list_history
         identifier: "{{ var('iterable_campaign_list_history_identifier', 'campaign_list_history')}}"
@@ -69,7 +64,7 @@ sources:
           - name: list_id
             description: Reference to the list used
           - name: updated_at
-            description: Last update timestamp as epoch time in milliseconds
+            description: Last update timestamp
 
       - name: campaign_suppression_list_history  # this is the correct spelling
         identifier: "{{ var('iterable_campaign_suppression_list_history_identifier', 'campaign_suppression_list_history') }}"
@@ -81,7 +76,7 @@ sources:
           - name: suppressed_list_id
             description: Reference to the list used
           - name: updated_at
-            description: Last update timestamp as epoch time in milliseconds
+            description: Last update timestamp
 
       - name: channel
         identifier: "{{ var('iterable_channel_identifier', 'channel')}}"
@@ -107,7 +102,7 @@ sources:
           - name: content_id
             description: Reference to the content the event is associated with.
           - name: created_at
-            description: Creation timestamp as epoch time in milliseconds
+            description: Creation timestamp
           - name: email
             description: The user's email. User identifier, for email-based projects. Previously was the unique identifier for user records, for Iterable customers before August 2023.  Exists if using the history version of the table.
           - name: additional_properties
@@ -263,7 +258,7 @@ sources:
           - name: list_type
             description: The list type
           - name: created_at
-            description: Creation timestamp as epoch time in milliseconds
+            description: Creation timestamp
           - name: description
             description: Information about the list
 
@@ -299,7 +294,7 @@ sources:
           - name: template_type
             description: The type of the template
           - name: created_at
-            description: Creation timestamp as epoch time in milliseconds
+            description: Creation timestamp
           - name: client_template_id
             description: Reference to the client template
           - name: creator_user_id
@@ -307,7 +302,7 @@ sources:
           - name: message_type_id
             description: Reference to the message type associated with the template
           - name: updated_at
-            description: Last update timestamp as epoch time in milliseconds
+            description: Last update timestamp
 
       - name: user_history
         identifier: "{{ var('iterable_user_history_identifier', 'user_history')}}"
@@ -326,11 +321,11 @@ sources:
           - name: email_list_ids
             description: Array of references to the lists associated with the user
           - name: signup_date
-            description: Timestamp as epoch time in milliseconds of when the user signed up
+            description: Timestamp of when the user signed up
           - name: signup_source
             description: Source where the user signed up
           - name: updated_at
-            description: Last update timestamp as epoch time in milliseconds
+            description: Last update timestamp
 
       - name: user_unsubscribed_channel
         identifier: "{{ var('iterable_user_unsubscribed_channel_identifier', 'user_unsubscribed_channel')}}"
@@ -362,7 +357,7 @@ sources:
           - name: email
             description: Unique identifier of the user
           - name: updated_at
-            description: Last update timestamp as epoch time in milliseconds
+            description: Last update timestamp
 
       - name: user_unsubscribed_message_type_history
         identifier: "{{ var('iterable_user_unsubscribed_message_type_history_identifier', 'user_unsubscribed_message_type_history')}}"
@@ -375,4 +370,4 @@ sources:
           - name: email
             description: Unique identifier of the user
           - name: updated_at
-            description: Last update timestamp as epoch time in milliseconds
+            description: Last update timestamp
