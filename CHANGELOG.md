@@ -1,3 +1,8 @@
+# dbt_iterable_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#41](https://github.com/fivetran/dbt_iterable_source/pull/41))
+
 # dbt_iterable_source v0.10.0
 [PR #39](https://github.com/fivetran/dbt_iterable_source/pull/39) contains the following updates:
 
