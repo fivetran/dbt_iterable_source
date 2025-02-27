@@ -1,4 +1,6 @@
-<p align="center">
+# Iterable Source dbt Package ([docs](https://fivetran.github.io/dbt_iterable_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_iterable_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -10,7 +12,6 @@
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
 
-# Iterable Source dbt Package ([docs](https://fivetran.github.io/dbt_iterable_source/))
 ## What does this dbt package do?
 
 - Materializes [Iterable staging tables](https://fivetran.github.io/dbt_iterable_source/#!/overview/iterable_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/iterable#schemainformation). These staging tables clean, test, and prepare your Iterable data from [Fivetran's connector](https://fivetran.com/docs/applications/iterable) for analysis by doing the following:
@@ -70,7 +71,6 @@ vars:
     iterable__using_event_extension: false         # default is true   
 
 ```
-
 
 ### (Optional) Step 5: Additional configurations
 
