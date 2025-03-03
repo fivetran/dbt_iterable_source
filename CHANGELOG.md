@@ -1,4 +1,8 @@
-# dbt_iterable_source version.version
+# dbt_iterable_source v0.10.1
+This release includes the following updates:
+
+## Bug Fixes 
+- Updates the `does_table_exist` macro to align with the current version of the macro present in other packages. Previously this caused an error in Snowflake when concurrently running other packages that use reserved words. ([#42](https://github.com/fivetran/dbt_iterable_source/pull/42))
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#41](https://github.com/fivetran/dbt_iterable_source/pull/41))
