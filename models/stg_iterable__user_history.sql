@@ -1,4 +1,6 @@
 {{ config(materialized='view') }}
+{% set source_columns_in_relation = adapter.get_columns_in_relation(ref('stg_iterable__user_history_tmp')) %}
+
 
 with base as (
 
@@ -18,7 +20,7 @@ fields as (
         */
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_iterable__user_history_tmp')),
+                source_columns=source_columns_in_relation,
                 staging_columns=get_user_history_columns()
             )
         }}
@@ -35,7 +37,7 @@ final as (
         cast(user_id as {{ dbt.type_string() }} ) as user_id,
         first_name,
         last_name,
-        cast(email_list_ids as {{ dbt.type_string() }}) as email_list_ids,
+        {{ iterable_source.json_to_string("email_list_ids", source_columns_in_relation) }} as email_list_ids,
         phone_number,
         signup_date,
         signup_source,
