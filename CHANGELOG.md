@@ -1,5 +1,5 @@
 # dbt_iterable_source v0.10.2
-[PR #58](https://github.com/fivetran/dbt_iterable_source/pull/58) includes the following updates:
+[PR #43](https://github.com/fivetran/dbt_iterable_source/pull/43) includes the following updates:
 
 ## Under the Hood
 - Added BigQuery JSON field support for the following model and columns:
