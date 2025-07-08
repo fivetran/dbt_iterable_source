@@ -1,3 +1,12 @@
+# dbt_iterable_source v0.10.2
+[PR #58](https://github.com/fivetran/dbt_iterable_source/pull/58) includes the following updates:
+
+## Under the Hood
+- Added BigQuery JSON field support for the following model and columns:
+  - `stg_iterable__user_history`: `email_list_ids` column
+- Added the `json_to_string()` macro for BigQuery to convert JSON fields to strings for reliable downstream parsing.
+- Included json versions to the integration tests to ensure json data type compatibility.
+
 # dbt_iterable_source v0.10.1
 This release includes the following updates:
 
