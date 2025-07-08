@@ -42,10 +42,12 @@ seeds:
     user_history_data:
       +column_types:
         email_list_ids: "{{ 'string' if target.type in ('bigquery', 'spark', 'databricks') else 'varchar' }}"
+        updated_at: timestamp
     user_history_bq_json_data:
       +enabled: "{{ target.type == 'bigquery' }}"
       +column_types:
         email_list_ids: json
+        updated_at: timestamp
 
 dispatch:
   - macro_namespace: dbt_utils
